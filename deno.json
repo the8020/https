@@ -1,0 +1,37 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "noImplicitOverride": true,
+    "noUncheckedIndexedAccess": true,
+    "useUnknownInCatchVariables": true,
+    "lib": [
+      "deno.ns",
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ]
+  },
+  "fmt": {
+    "exclude": [
+      "vendor"
+    ]
+  },
+  "lint": {
+    "exclude": [
+      "vendor"
+    ]
+  },
+  "imports": {
+    "@std/assert": "jsr:@std/assert@1.0.14",
+    "/p/": "file:///workspace/packages/",
+    "@the8020/kernel": "file:///opt/runtime/kernel/mod.ts",
+    "@the8020/context": "file:///opt/runtime/context/mod.ts"
+  },
+  "tasks": {
+    "bundle": "bash build-dependencies.sh",
+    "check": "bash -n build-dependencies.sh && deno fmt --check . && deno lint . && deno check --import-map=deno.local.json mod.ts types/*.ts tables/*.ts src/*.ts programs/*/*.ts acme_e2e.ts",
+    "test": "deno test --allow-read --allow-env --import-map=deno.local.json .",
+    "test:acme": "deno run --import-map=deno.local.json --allow-read --allow-write --allow-net --allow-env --allow-run acme_e2e.ts",
+    "test:browser": "cd ../uui && deno task test:presentation-browser --fixture=../https/programs/https/browser_fixture.ts"
+  }
+}

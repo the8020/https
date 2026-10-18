@@ -1,0 +1,4 @@
+schema = 1
+description = "80|20 HTTPS policy and certificate management"
+documentation_url = "https://github.com/the8020/https"
+license = "Apache-2.0"

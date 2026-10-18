@@ -1,0 +1,9 @@
+version = 1
+command = "https.certificates.issue"
+program = "the8020/https/issue"
+summary = "Obtain or renew an automatic HTTPS certificate"
+usage = "<hostname> [renew]"
+mutates_state = true
+restart_behavior = "none"
+[[examples]]
+command = "https.certificates.issue example.com renew"
