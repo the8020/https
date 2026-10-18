@@ -11,6 +11,10 @@ Parent DOX: [HTTPS programs](../AGENTS.md).
 
 # Local Contracts
 
+- Certificate upload/refresh and node-diagnostics refresh live in their list
+  toolbars, like domain/proxy additions. Configuration Save and certificate-
+  detail actions stay in the screen header.
+
 - Put HTTPS/Let's Encrypt, allowed domains, and enrollment limits first. Domain
   and proxy lists edit the retained draft; Save commits it once.
 - Advanced edits the draft's ACME directory, IP identity, and trusted proxies.

@@ -32,17 +32,15 @@ export async function certificates(): Promise<void> {
         schema: 1,
         id: "https-certificates",
         root: {
+          toolbar: [
+            { id: "upload", label: "Upload certificate", kind: "primary" },
+            { id: "refresh", label: "Refresh" },
+          ],
           type: "list",
           bind: "certificates",
           key: "name",
           display: ["name", "coveredNames", "source", "expiresAt", "status"],
         },
-      },
-      header: {
-        actions: [
-          { id: "upload", label: "Upload certificate", kind: "primary" },
-          { id: "refresh", label: "Refresh" },
-        ],
       },
     });
     if (event.action === BACK_EVENT) return;

@@ -180,9 +180,13 @@ async function diagnostics() {
       layout: {
         schema: 1,
         id: "https-diagnostics",
-        root: { type: "list", bind: "nodes", key: "node" },
+        root: {
+          toolbar: [{ id: "refresh", label: "Refresh" }],
+          type: "list",
+          bind: "nodes",
+          key: "node",
+        },
       },
-      header: { actions: [{ id: "refresh", label: "Refresh" }] },
     });
     if (event.action === BACK_EVENT) return;
   }
