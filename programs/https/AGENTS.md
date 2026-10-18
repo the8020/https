@@ -34,6 +34,8 @@ Parent DOX: [HTTPS programs](../AGENTS.md).
 
 - Run the package checks/tests and `deno task test:browser`, which runs
   `browser_fixture.ts` through UUI's presentation harness with real package SQL.
+  Cancelling either upload picker retains the modal and existing draft/files;
+  this behavior belongs to the shared UUI dialog handler.
 
 # Child DOX Index
 

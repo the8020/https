@@ -166,6 +166,20 @@ export default async function fixture() {
           `!document.querySelector('[data-element-id=${id}] input[type=file]').disabled`,
         );
       };
+      const cancelPicker = async (id: string) => {
+        await wait(
+          `!!document.querySelector('[data-element-id=${id}] input[type=file]')`,
+        );
+        assert(
+          await page.evaluate<boolean>(`(() => {
+          const input = document.querySelector('[data-element-id=${id}] input[type=file]');
+          const dialog = input.closest('dialog');
+          input.dispatchEvent(new Event('cancel', { bubbles: true }));
+          return dialog.open && !dialog.inert && input.isConnected;
+        })()`),
+          "Cancelling the file picker must keep the upload modal active",
+        );
+      };
       await button("HTTPS");
       await title("HTTPS");
       assertEquals((await getConfiguration()).allowedDomains, ["*"]);
@@ -203,7 +217,6 @@ export default async function fixture() {
       await wait(
         "document.body.textContent.includes('Injected publication failure')",
       );
-      await button("2");
       await wait("document.body.textContent.includes('Node is unreachable')");
       await button("Back");
       await title("Advanced HTTPS");
@@ -225,11 +238,13 @@ export default async function fixture() {
       await button("Upload certificate");
       await title("Upload certificate");
       await input("name", "example.test");
+      await cancelPicker("chain");
       await upload(
         "chain",
         new TextEncoder().encode(fixtures.server.certificate),
         "server.crt",
       );
+      await cancelPicker("key");
       await upload(
         "key",
         new TextEncoder().encode(fixtures.replacement.key),
