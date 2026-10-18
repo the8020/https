@@ -1,0 +1,11 @@
+version = 1
+command = "https.import"
+program = "the8020/https/import"
+summary = "Import existing HTTPS deployment state once before native TLS starts"
+mutates_state = true
+restart_behavior = "none"
+[[secrets]]
+name = "state"
+required = true
+prompt = "HTTPS migration JSON: "
+file_option = "state-file"

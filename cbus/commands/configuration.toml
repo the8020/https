@@ -1,0 +1,11 @@
+version = 1
+command = "https.configuration"
+program = "the8020/https/configuration"
+summary = "Read or update shared HTTPS policy"
+usage = "[configuration-json]"
+mutates_state = true
+restart_behavior = "none"
+[[examples]]
+command = "https.configuration"
+[[examples]]
+command = 'https.configuration {"allowedDomains":["example.com"]}'

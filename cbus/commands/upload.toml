@@ -1,0 +1,14 @@
+version = 1
+command = "https.certificates.upload"
+program = "the8020/https/upload"
+summary = "Upload or replace a server certificate"
+usage = "<hostname> <certificate-chain-pem>"
+mutates_state = true
+restart_behavior = "none"
+[[secrets]]
+name = "key"
+required = true
+prompt = "PEM private key: "
+file_option = "key-file"
+[[examples]]
+command = "https.certificates.upload example.com <certificate-chain-pem> --key-file private.key"
