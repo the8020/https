@@ -171,6 +171,9 @@ relevant child AGENTS.md
 
 # Verification
 
+- Run package tasks inside an 80|20 Deno workspace; its root config supplies
+  platform imports. The package config owns dependencies and tasks.
+
 - `deno task check` checks formatting, lint, and types.
 - `deno task test` exercises normal source with an isolated database and public
   test certificates.
