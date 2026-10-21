@@ -38,7 +38,7 @@ const form = (
 });
 
 export default async function https(): Promise<void> {
-  await requirePermission("https.configuration.view", "");
+  await requirePermission("the8020.https.configuration.view", "");
   let saved = await getConfiguration();
   const model = new Model(form(saved));
   while (true) {

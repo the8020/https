@@ -3,7 +3,7 @@ import { requirePermission } from "/p/the8020/auth/mod.ts";
 import { applyConfiguration, getConfiguration } from "../../mod.ts";
 
 export default async function configuration(...args: string[]) {
-  await requirePermission("https.configuration.view", "");
+  await requirePermission("the8020.https.configuration.view", "");
   const current = await getConfiguration();
   if (args.length === 0) return current;
   if (args.length !== 1) {

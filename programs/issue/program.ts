@@ -13,7 +13,7 @@ export default async function issue(...args: string[]) {
     });
   }
   const name = normalizeHostname(requiredCommandArgument(args, 0, "hostname"));
-  await requirePermission("https.certificate.edit", name);
+  await requirePermission("the8020.https.certificate.edit", name);
   const result = await issueCertificate(name, args[1] === "renew");
   if (result.status === "busy") return result;
   return { ...result, ...await applyChanges() };

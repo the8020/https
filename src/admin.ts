@@ -6,7 +6,7 @@ import { certificateRecord } from "../types/certificate.ts";
 
 /** Bounded public metadata for administration; no PEM or secret references. */
 export async function certificateRecords(name?: string) {
-  await requirePermission("https.configuration.view", "");
+  await requirePermission("the8020.https.configuration.view", "");
   let query = db.selectFrom(Certificates.table)
     .leftJoin(Versions.table, Versions.id, Certificates.activeVersion)
     .select([

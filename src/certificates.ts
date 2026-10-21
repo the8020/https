@@ -21,7 +21,7 @@ export async function uploadCertificate(
   key: string,
 ) {
   name = normalizePattern(name);
-  await requirePermission("https.certificate.edit", name);
+  await requirePermission("the8020.https.certificate.edit", name);
   return await publishCertificate(name, chain, key);
 }
 

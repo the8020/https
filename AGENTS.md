@@ -127,7 +127,8 @@ relevant child AGENTS.md
 # Ownership
 
 - `widgets/` declares this package's Home tiles and categories through the
-  `the8020/packages/widgets.ts` format.
+  `the8020/packages/widgets.ts` format; the tile is visible with
+  `the8020.https.configuration.view`.
 - Own shared configuration, domain admission, server certificate records, ACME
   operations, and HTTPS administration.
 - Kernel owns listeners, immutable in-memory TLS selection, and verified
