@@ -106,7 +106,8 @@ relevant child AGENTS.md
 
 ## Child DOX Index
 
-- [i18n/AGENTS.md](i18n/AGENTS.md): English and Czech presentation catalogs.
+- [i18n/AGENTS.md](i18n/AGENTS.md): Complete built-in-language presentation
+  catalogs.
 
 - [programs/AGENTS.md](programs/AGENTS.md): Ordinary configuration, certificate,
   native publication programs, and HTTPS UUI administration.

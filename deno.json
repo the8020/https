@@ -30,6 +30,6 @@
     "test": "deno test --allow-read --allow-env .",
     "test:acme": "deno run --allow-read --allow-write --allow-net --allow-env --allow-run acme_e2e.ts",
     "test:browser": "cd ../uui && deno task test:presentation-browser --fixture=../https/programs/https/browser_fixture.ts",
-    "check:i18n": "deno run --allow-read ../i18n/check.ts --complete=cs ."
+    "check:i18n": "deno run --allow-read ../i18n/check.ts --complete=builtin ."
   }
 }

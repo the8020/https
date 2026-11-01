@@ -89,7 +89,7 @@
     "policy.backend_peers_allowed_to_assert_rfc_9440": "Backendové protějšky, které smějí předávat RFC 9440 Client-Cert. Chráněný backend musí být dosažitelný pouze z důvěryhodných terminátorů, které musí nahrazovat příchozí hlavičky certifikátů.",
     "program.invalid_value": "Neplatná hodnota",
     "program.saved_and_applied_on_this_node": "Uloženo a použito na tomto uzlu",
-    "certificates.renew": "Obnovit certifikát",
+    "certificates.renew": "Obnovit",
     "certificates.retry": "Zkusit znovu",
     "admin.pending": "Čeká",
     "admin.failed": "Selhalo",
