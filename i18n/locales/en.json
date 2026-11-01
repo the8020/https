@@ -107,13 +107,16 @@
     "programs.snapshot.description": "Load public HTTPS state for native publication",
     "programs.maintenance.description": "Renew due HTTPS certificates and clean up retired material",
     "programs.upload.description": "Upload or replace a server certificate",
-    "declarations.auth.https.configuration.view": "View HTTPS policy and certificate metadata; value is empty.",
-    "declarations.auth.https.configuration.edit": "Change shared HTTPS policy and admission limits; value is empty.",
-    "declarations.auth.https.certificate.edit": "Upload or replace a server certificate; value is its normalized primary hostname or IP address.",
+    "declarations.auth.the8020.https.configuration.view": "View HTTPS policy and certificate metadata; value is empty.",
+    "declarations.auth.the8020.https.configuration.edit": "Change shared HTTPS policy and admission limits; value is empty.",
+    "declarations.auth.the8020.https.certificate.edit": "Upload or replace a server certificate; value is its normalized primary hostname or IP address.",
     "validation.hostname": "Enter a hostname, *.domain, or *",
     "validation.ip": "Enter an IP address",
     "validation.network": "Enter an IP address or CIDR network",
     "validation.acme": "Use an HTTPS ACME directory URL",
-    "validation.origin": "Use an HTTP or HTTPS origin without credentials or a path"
+    "validation.origin": "Use an HTTP or HTTPS origin without credentials or a path",
+    "widgets.https.title": "HTTPS",
+    "widgets.https.description": "Configure HTTPS and certificates",
+    "categories.administration.title": "Administration"
   }
 }

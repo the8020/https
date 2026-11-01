@@ -107,13 +107,16 @@
     "programs.snapshot.description": "Načtení veřejného stavu HTTPS pro nativní publikaci",
     "programs.maintenance.description": "Obnova certifikátů v termínu a úklid vyřazených materiálů",
     "programs.upload.description": "Nahrání nebo nahrazení serverového certifikátu",
-    "declarations.auth.https.configuration.view": "Zobrazení pravidel HTTPS a metadat certifikátů; hodnota je prázdná.",
-    "declarations.auth.https.configuration.edit": "Změna sdílených pravidel HTTPS a limitů přijetí; hodnota je prázdná.",
-    "declarations.auth.https.certificate.edit": "Nahrání nebo nahrazení serverového certifikátu; hodnotou je normalizovaný hlavní název hostitele nebo IP adresa.",
+    "declarations.auth.the8020.https.configuration.view": "Zobrazení pravidel HTTPS a metadat certifikátů; hodnota je prázdná.",
+    "declarations.auth.the8020.https.configuration.edit": "Změna sdílených pravidel HTTPS a limitů přijetí; hodnota je prázdná.",
+    "declarations.auth.the8020.https.certificate.edit": "Nahrání nebo nahrazení serverového certifikátu; hodnotou je normalizovaný hlavní název hostitele nebo IP adresa.",
     "validation.hostname": "Zadejte název hostitele, *.domena nebo *",
     "validation.ip": "Zadejte IP adresu",
     "validation.network": "Zadejte IP adresu nebo síť CIDR",
     "validation.acme": "Použijte HTTPS adresu adresáře ACME",
-    "validation.origin": "Použijte HTTP nebo HTTPS adresu serveru bez přihlašovacích údajů a cesty"
+    "validation.origin": "Použijte HTTP nebo HTTPS adresu serveru bez přihlašovacích údajů a cesty",
+    "widgets.https.title": "HTTPS",
+    "widgets.https.description": "Nastavení HTTPS a certifikátů",
+    "categories.administration.title": "Správa"
   }
 }
