@@ -1,0 +1,12 @@
+schema = 1
+title = "HTTPS"
+description = "Configure HTTPS and certificates"
+icon = "lock"
+category = "administration"
+order = 50
+
+[open]
+program = "the8020/https/https"
+
+[visible]
+permission = "the8020.https.configuration.view"

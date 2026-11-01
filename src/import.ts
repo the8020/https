@@ -48,7 +48,7 @@ const legacyState = z.object({
 
 /** Import once before exposing native TLS; a retry never replaces renewed state. */
 export async function importLegacyState(raw: string) {
-  await requirePermission("https.configuration.edit", "");
+  await requirePermission("the8020.https.configuration.edit", "");
   if (new TextEncoder().encode(raw).length > 256 * 1024) {
     throw new Error(
       "HTTPS migration input exceeds 256 KiB; retain the old deployment and migrate explicitly",
@@ -139,7 +139,10 @@ export async function importLegacyState(raw: string) {
     throw new Error("Migration contains competing certificates for one name");
   }
   for (const record of certificates) {
-    await requirePermission("https.certificate.edit", record.inspected.name);
+    await requirePermission(
+      "the8020.https.certificate.edit",
+      record.inspected.name,
+    );
   }
   await getConfiguration();
   return await transaction({ timeoutMs: 10000 }, async (tx) => {

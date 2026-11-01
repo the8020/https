@@ -11,9 +11,9 @@ Parent DOX: [HTTPS](../AGENTS.md).
 
 # Local Contracts
 
-- Configuration reads require `https.configuration.view`; writes use the owning
-  API's permission. Snapshots contain public certificate material and secret
-  references only.
+- Configuration reads require `the8020.https.configuration.view`; writes use the
+  owning API's permission. Snapshots contain public certificate material and
+  secret references only.
 - Certificate commands receive private keys only through execution-scoped secure
   input. Never return keys or put them in positional arguments or job history.
 - Upload uses `--key-file`; one-time deployment import uses `--state-file`. Both

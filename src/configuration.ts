@@ -27,7 +27,7 @@ export async function getConfiguration(): Promise<Policy> {
 }
 
 export async function saveConfiguration(input: unknown): Promise<Policy> {
-  await requirePermission("https.configuration.edit", "");
+  await requirePermission("the8020.https.configuration.edit", "");
   const value = policy.parse(input);
   await transaction({ timeoutMs: 2000 }, async (tx) => {
     await lockIndexRevision(tx);
