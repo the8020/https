@@ -1,3 +1,5 @@
+import { text as localizedText } from "/p/the8020/i18n/mod.ts";
+import { msg } from "/p/the8020/https/i18n/messages.ts";
 import { requirePermission } from "/p/the8020/auth/mod.ts";
 import { db } from "/p/the8020/db/mod.ts";
 import Certificates from "../tables/certificates.ts";
@@ -33,16 +35,20 @@ export async function certificateRecords(name?: string) {
       ...row,
       coveredNames: domains?.join(", ") ?? "",
       status: row.expiresAt && row.expiresAt <= now
-        ? "Expired"
+        ? localizedText(msg("admin.expired"))
         : row.validFrom && row.validFrom > now
-        ? "Not yet valid"
+        ? localizedText(msg("admin.not_yet_valid"))
         : row.claimUntil && row.claimUntil > now
-        ? row.fingerprint ? "Renewing" : "Issuing"
+        ? row.fingerprint
+          ? localizedText(msg("admin.renewing"))
+          : localizedText(msg("admin.issuing"))
         : row.lastError
-        ? row.fingerprint ? "Renewal failed" : "Failed"
+        ? row.fingerprint
+          ? localizedText(msg("admin.renewal_failed"))
+          : localizedText(msg("admin.failed"))
         : row.fingerprint
-        ? "Ready"
-        : "Pending",
+        ? localizedText(msg("administration.ready"))
+        : localizedText(msg("admin.pending")),
     })
   );
 }

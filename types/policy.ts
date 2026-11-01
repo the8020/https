@@ -1,3 +1,5 @@
+import { text } from "/p/the8020/i18n/mod.ts";
+import { msg } from "/p/the8020/https/i18n/messages.ts";
 import { field, z } from "/p/the8020/db/fields.ts";
 import { domainToASCII } from "node:url";
 import { isIP } from "node:net";
@@ -57,71 +59,69 @@ export const domainPattern = field(
     } catch {
       ctx.addIssue({
         code: "custom",
-        message: "Enter a hostname, *.domain, or *",
+        message: text(msg("validation.hostname")),
       });
       return z.NEVER;
     }
   }),
   {
-    label: "Allowed domain",
-    description:
-      "An exact hostname, * for any eligible name, or *.example.com for one additional DNS label.",
+    label: msg("policy.allowed_domain"),
+    description: msg("policy.an_exact_hostname_for_any_eligible_name"),
   },
 );
 
 export const policy = z.object({
   enabled: field(z.boolean().default(true), {
-    label: "HTTPS",
-    description:
-      "Enable the kernel's HTTPS listener with centrally managed certificates.",
+    label: msg("program.https"),
+    description: msg("policy.enable_the_kernel_s_https_listener_with"),
   }),
   letsEncrypt: field(z.boolean().default(true), {
-    label: "Let's Encrypt",
-    description:
-      "Automatically obtain and renew certificates for admitted names using HTTP-01 validation.",
+    label: msg("policy.let_s_encrypt"),
+    description: msg(
+      "policy.automatically_obtain_and_renew_certificates_for_admitted",
+    ),
   }),
   allowedDomains: field(z.array(domainPattern).max(1000).default(["*"]), {
-    label: "Allowed domains",
-    description:
-      "Names admitted on the managed public ingress. An empty list denies public names.",
+    label: msg("program.allowed_domains"),
+    description: msg("policy.names_admitted_on_the_managed_public_ingress"),
     storage: { type: "json" },
   }),
   attemptsPerHour: field(z.int().min(0).max(10000).default(2), {
-    label: "New hostname attempts per hour",
-    description:
-      "System-wide rolling-hour enrollment allowance. Failed checks consume an attempt. Zero pauses new enrollment.",
+    label: msg("policy.new_hostname_attempts_per_hour"),
+    description: msg(
+      "policy.system_wide_rolling_hour_enrollment_allowance_failed",
+    ),
   }),
   maximumNames: field(z.int().min(0).max(10000).default(10), {
-    label: "Maximum admitted hostnames",
-    description:
-      "System-wide enrollment limit. Lowering it retains existing names and renewals.",
+    label: msg("policy.maximum_admitted_hostnames"),
+    description: msg("policy.system_wide_enrollment_limit_lowering_it_retains"),
   }),
   concurrentChecks: field(z.int().min(0).max(100).default(2), {
-    label: "Concurrent admission checks",
-    description:
-      "Maximum simultaneous new-name checks across all nodes. Zero pauses new enrollment.",
+    label: msg("policy.concurrent_admission_checks"),
+    description: msg("policy.maximum_simultaneous_new_name_checks_across_all"),
   }),
   checkTimeoutSeconds: field(z.number().min(0.1).max(30).default(3), {
-    label: "Admission timeout (seconds)",
-    description: "Combined DNS and HTTP reachability-check deadline.",
+    label: msg("policy.admission_timeout_seconds"),
+    description: msg(
+      "policy.combined_dns_and_http_reachability_check_deadline",
+    ),
   }),
   directory: field(
     z.url().max(2048).refine((value) => {
       const url = new URL(value);
       return url.protocol === "https:" && !url.username && !url.password &&
         !url.hash;
-    }, "Use an HTTPS ACME directory URL").default(
+    }, { error: () => text(msg("validation.acme")) }).default(
       "https://acme-v02.api.letsencrypt.org/directory",
     ),
     {
-      label: "ACME directory",
-      description:
-        "Directory used for new ACME orders; existing account identities remain associated with their directory.",
+      label: msg("policy.acme_directory"),
+      description: msg("policy.directory_used_for_new_acme_orders_existing"),
     },
   ),
   email: field(z.union([z.email(), z.literal("")]).default(""), {
-    label: "Account email",
-    description: "Contact address for the ACME account.",
+    label: msg("policy.account_email"),
+    description: msg("policy.contact_address_for_the_acme_account"),
   }),
   challengeFallback: field(
     z.union([
@@ -130,12 +130,13 @@ export const policy = z.object({
         const url = new URL(value);
         return ["http:", "https:"].includes(url.protocol) && !url.username &&
           !url.password && !url.search && !url.hash && url.pathname === "/";
-      }, "Use an HTTP or HTTPS origin without credentials or a path"),
+      }, { error: () => text(msg("validation.origin")) }),
     ]).default(""),
     {
-      label: "Challenge fallback",
-      description:
-        "Another system sharing this public HTTP endpoint, such as the production instance in a dev/prod deployment. Consulted only when no local certificate challenge matches; no certificates or keys are copied.",
+      label: msg("policy.challenge_fallback"),
+      description: msg(
+        "policy.another_system_sharing_this_public_http_endpoint",
+      ),
     },
   ),
   ipAddress: field(
@@ -144,13 +145,14 @@ export const policy = z.object({
       try {
         if (isIP(value)) return normalizeHostname(value);
       } catch { /* Report field validation below. */ }
-      ctx.addIssue({ code: "custom", message: "Enter an IP address" });
+      ctx.addIssue({ code: "custom", message: text(msg("validation.ip")) });
       return z.NEVER;
     }).default(""),
     {
-      label: "HTTPS IP address",
-      description:
-        "Configured IP identity, including clients that do not send SNI.",
+      label: msg("policy.https_ip_address"),
+      description: msg(
+        "policy.configured_ip_identity_including_clients_that_do",
+      ),
     },
   ),
   trustedProxies: field(
@@ -172,15 +174,14 @@ export const policy = z.object({
         }
         ctx.addIssue({
           code: "custom",
-          message: "Enter an IP address or CIDR network",
+          message: text(msg("validation.network")),
         });
         return z.NEVER;
       }),
     ).max(100).default([]),
     {
-      label: "Trusted certificate proxies",
-      description:
-        "Backend peers allowed to assert RFC 9440 Client-Cert. The protected backend must be reachable only by trusted terminators, which must replace incoming certificate headers.",
+      label: msg("advanced.trusted_certificate_proxies"),
+      description: msg("policy.backend_peers_allowed_to_assert_rfc_9440"),
       storage: { type: "json" },
     },
   ),

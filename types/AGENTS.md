@@ -22,6 +22,10 @@ Parent DOX: [HTTPS](../AGENTS.md).
   and trusted proxies. Reject scoped addresses; mapped proxy CIDRs must have at
   least 96 prefix bits and are stored as the corresponding IPv4 network.
 
+- `certificateRecord.status` is derived display text, with localized known
+  values in field help. Certificate storage and lifecycle state stay
+  language-neutral.
+
 # Work Guidance
 
 # Verification

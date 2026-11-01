@@ -1,3 +1,5 @@
+import { text as localizedText } from "/p/the8020/i18n/mod.ts";
+import { msg } from "/p/the8020/https/i18n/messages.ts";
 import {
   BACK_EVENT,
   callScreen,
@@ -44,7 +46,7 @@ export default async function https(): Promise<void> {
   while (true) {
     const event = await callScreen({
       id: "https",
-      title: "HTTPS",
+      title: msg("program.https"),
       model,
       schema: Form,
       controls: common.map((key) => ({ id: key, bind: key })),
@@ -56,21 +58,21 @@ export default async function https(): Promise<void> {
           children: [
             {
               type: "field-group",
-              title: "HTTPS",
+              title: msg("program.https"),
               controls: ["enabled", "letsEncrypt", "email"],
             },
             {
               type: "list",
               id: "domains",
-              title: "Allowed domains",
+              title: msg("program.allowed_domains"),
               bind: "domains",
               key: "name",
               display: ["name"],
-              toolbar: [{ id: "add-domain", label: "Add domain" }],
+              toolbar: [{ id: "add-domain", label: msg("program.add_domain") }],
             },
             {
               type: "field-group",
-              title: "Enrollment limits",
+              title: msg("program.enrollment_limits"),
               controls: [
                 "attemptsPerHour",
                 "maximumNames",
@@ -83,10 +85,10 @@ export default async function https(): Promise<void> {
       },
       header: {
         actions: [
-          { id: "save", label: "Save", kind: "primary" },
-          { id: "certificates", label: "Certificates" },
-          { id: "advanced", label: "Advanced" },
-          { id: "refresh", label: "Refresh" },
+          { id: "save", label: msg("certificates.save"), kind: "primary" },
+          { id: "certificates", label: msg("program.certificates") },
+          { id: "advanced", label: msg("certificates.advanced") },
+          { id: "refresh", label: msg("advanced.refresh") },
         ],
       },
     });
@@ -152,14 +154,20 @@ async function editDomain(value?: string): Promise<string | undefined> {
   while (true) {
     const event = await callScreen({
       id: "https-domain",
-      title: value ? "Allowed domain" : "Add domain",
+      title: value
+        ? localizedText(msg("policy.allowed_domain"))
+        : localizedText(msg("program.add_domain")),
       schema: z.object({ name: domainInput }),
       model,
       header: {
         actions: [
-          { id: "done", label: "Done", kind: "primary" },
+          { id: "done", label: msg("advanced.done"), kind: "primary" },
           ...(value
-            ? [{ id: "remove", label: "Remove", kind: "danger" as const }]
+            ? [{
+              id: "remove",
+              label: msg("advanced.remove"),
+              kind: "danger" as const,
+            }]
             : []),
         ],
       },
@@ -179,7 +187,7 @@ async function editDomain(value?: string): Promise<string | undefined> {
 export function savedMessage(result: { applied: boolean; error?: string }) {
   sendMessage(
     result.applied
-      ? "Saved and applied on this node"
+      ? localizedText(msg("program.saved_and_applied_on_this_node"))
       : `Saved; node application failed: ${result.error}`,
     result.applied ? "success" : "warning",
   );
@@ -188,7 +196,7 @@ export function savedMessage(result: { applied: boolean; error?: string }) {
 export function showError(error: unknown) {
   sendMessage(
     error instanceof z.ZodError
-      ? error.issues[0]?.message ?? "Invalid value"
+      ? error.issues[0]?.message ?? localizedText(msg("program.invalid_value"))
       : error instanceof Error
       ? error.message
       : "HTTPS operation failed",

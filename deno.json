@@ -26,9 +26,10 @@
   },
   "tasks": {
     "bundle": "bash build-dependencies.sh",
-    "check": "bash -n build-dependencies.sh && deno fmt --check . && deno lint . && deno check mod.ts types/*.ts tables/*.ts src/*.ts programs/*/*.ts acme_e2e.ts",
+    "check": "bash -n build-dependencies.sh && deno fmt --check . && deno lint . && deno check mod.ts types/*.ts tables/*.ts src/*.ts programs/*/*.ts acme_e2e.ts && deno task check:i18n",
     "test": "deno test --allow-read --allow-env .",
     "test:acme": "deno run --allow-read --allow-write --allow-net --allow-env --allow-run acme_e2e.ts",
-    "test:browser": "cd ../uui && deno task test:presentation-browser --fixture=../https/programs/https/browser_fixture.ts"
+    "test:browser": "cd ../uui && deno task test:presentation-browser --fixture=../https/programs/https/browser_fixture.ts",
+    "check:i18n": "deno run --allow-read ../i18n/check.ts --complete=cs ."
   }
 }

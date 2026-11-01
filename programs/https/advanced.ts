@@ -1,3 +1,5 @@
+import { text as localizedText } from "/p/the8020/i18n/mod.ts";
+import { msg } from "/p/the8020/https/i18n/messages.ts";
 import {
   BACK_EVENT,
   callScreen,
@@ -39,7 +41,7 @@ export async function advanced(value: Policy): Promise<Policy | undefined> {
   while (true) {
     const event = await callScreen({
       id: "https-advanced",
-      title: "Advanced HTTPS",
+      title: msg("advanced.advanced_https"),
       model,
       schema: Advanced,
       controls: [{ id: "directory", bind: "directory", length: "long" }, {
@@ -64,19 +66,19 @@ export async function advanced(value: Policy): Promise<Policy | undefined> {
             {
               id: "proxies",
               type: "list",
-              title: "Trusted certificate proxies",
+              title: msg("advanced.trusted_certificate_proxies"),
               bind: "proxies",
               key: "peer",
-              toolbar: [{ id: "add", label: "Add proxy" }],
+              toolbar: [{ id: "add", label: msg("advanced.add_proxy") }],
             },
           ],
         },
       },
       header: {
         actions: [
-          { id: "done", label: "Done", kind: "primary" },
-          { id: "diagnostics", label: "Node diagnostics" },
-          { id: "authority", label: "Local authority" },
+          { id: "done", label: msg("advanced.done"), kind: "primary" },
+          { id: "diagnostics", label: msg("advanced.node_diagnostics") },
+          { id: "authority", label: msg("advanced.local_authority") },
         ],
       },
     });
@@ -117,14 +119,20 @@ async function editProxy(peer?: string): Promise<string | undefined> {
   while (true) {
     const event = await callScreen({
       id: "https-proxy",
-      title: peer ? "Trusted proxy" : "Add proxy",
+      title: peer
+        ? localizedText(msg("administration.trusted_proxy"))
+        : localizedText(msg("advanced.add_proxy")),
       schema: z.object({ peer: proxyInput }),
       model,
       header: {
         actions: [
-          { id: "done", label: "Done", kind: "primary" },
+          { id: "done", label: msg("advanced.done"), kind: "primary" },
           ...(peer
-            ? [{ id: "remove", label: "Remove", kind: "danger" as const }]
+            ? [{
+              id: "remove",
+              label: msg("advanced.remove"),
+              kind: "danger" as const,
+            }]
             : []),
         ],
       },
@@ -174,14 +182,14 @@ async function diagnostics() {
     }
     const event = await callScreen({
       id: "https-diagnostics",
-      title: "Node HTTPS diagnostics",
+      title: msg("advanced.node_https_diagnostics"),
       schema,
       model,
       layout: {
         schema: 1,
         id: "https-diagnostics",
         root: {
-          toolbar: [{ id: "refresh", label: "Refresh" }],
+          toolbar: [{ id: "refresh", label: msg("advanced.refresh") }],
           type: "list",
           bind: "nodes",
           key: "node",
@@ -199,14 +207,17 @@ async function authority() {
     "local",
   ).executeTakeFirst();
   if (!row) {
-    sendMessage("The local authority has not been created yet", "info");
+    sendMessage(
+      localizedText(msg("advanced.the_local_authority_has_not_been_created")),
+      "info",
+    );
     return;
   }
   const model = new Model({ certificate: row.certificate });
   while (true) {
     const event = await callScreen({
       id: "https-authority",
-      title: "Local HTTPS authority",
+      title: msg("advanced.local_https_authority"),
       schema: z.object({ certificate: authorityCertificate }),
       model,
       controls: [{
@@ -217,7 +228,9 @@ async function authority() {
         length: "long",
         rowSpan: 8,
       }],
-      header: { actions: [{ id: "copy", label: "Copy certificate" }] },
+      header: {
+        actions: [{ id: "copy", label: msg("advanced.copy_certificate") }],
+      },
     });
     if (event.action === BACK_EVENT) return;
     if (event.action === "copy") copyText(row.certificate);

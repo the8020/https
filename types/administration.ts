@@ -1,3 +1,4 @@
+import { msg } from "/p/the8020/https/i18n/messages.ts";
 import { field, fieldMetadata, z } from "/p/the8020/db/fields.ts";
 import { domainPattern, policy } from "./policy.ts";
 
@@ -10,9 +11,8 @@ export const domainInput = field(
 export const trustedProxy = field(
   policy.shape.trustedProxies.unwrap().element,
   {
-    label: "Trusted proxy",
-    description:
-      "Backend IP address or CIDR allowed to assert RFC 9440 Client-Cert. Restrict backend access to these terminators and configure them to replace incoming certificate headers.",
+    label: msg("administration.trusted_proxy"),
+    description: msg("administration.backend_ip_address_or_cidr_allowed_to"),
   },
 );
 
@@ -23,30 +23,36 @@ export const proxyInput = field(
 
 export const nodeApplication = z.object({
   node: field(z.string(), {
-    label: "Node",
-    description: "Application-server node reporting its HTTPS state.",
+    label: msg("administration.node"),
+    description: msg(
+      "administration.application_server_node_reporting_its_https_state",
+    ),
   }),
   desired: field(z.number().int().nullable(), {
-    label: "Desired revision",
-    description: "Shared revision this node is attempting to apply.",
+    label: msg("administration.desired_revision"),
+    description: msg(
+      "administration.shared_revision_this_node_is_attempting_to",
+    ),
   }),
   applied: field(z.number().int().nullable(), {
-    label: "Applied revision",
-    description: "Revision currently used by this node's listener.",
+    label: msg("administration.applied_revision"),
+    description: msg("administration.revision_currently_used_by_this_node_s"),
   }),
   ready: field(z.boolean(), {
-    label: "Ready",
-    description: "This node has accepted an HTTPS configuration.",
+    label: msg("administration.ready"),
+    description: msg(
+      "administration.this_node_has_accepted_an_https_configuration",
+    ),
   }),
   error: field(z.string(), {
-    label: "Application error",
-    description:
-      "Last HTTPS publication failure or reason this node's status is unavailable.",
+    label: msg("administration.application_error"),
+    description: msg(
+      "administration.last_https_publication_failure_or_reason_this",
+    ),
   }),
 });
 
 export const authorityCertificate = field(z.string(), {
-  label: "Local CA certificate",
-  description:
-    "Public root certificate for this system's local HTTPS names. Import it into clients that should trust this system's local authority.",
+  label: msg("administration.local_ca_certificate"),
+  description: msg("administration.public_root_certificate_for_this_system_s"),
 });

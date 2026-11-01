@@ -1,3 +1,5 @@
+import { text as localizedText } from "/p/the8020/i18n/mod.ts";
+import { msg } from "/p/the8020/https/i18n/messages.ts";
 import {
   BACK_EVENT,
   callScreen,
@@ -25,7 +27,7 @@ export async function certificates(): Promise<void> {
     model.data.certificates = await certificateRecords();
     const event = await callScreen({
       id: "https-certificates",
-      title: "HTTPS certificates",
+      title: msg("certificates.https_certificates"),
       schema,
       model,
       layout: {
@@ -33,8 +35,12 @@ export async function certificates(): Promise<void> {
         id: "https-certificates",
         root: {
           toolbar: [
-            { id: "upload", label: "Upload certificate", kind: "primary" },
-            { id: "refresh", label: "Refresh" },
+            {
+              id: "upload",
+              label: msg("certificates.upload_certificate"),
+              kind: "primary",
+            },
+            { id: "refresh", label: msg("advanced.refresh") },
           ],
           type: "list",
           bind: "certificates",
@@ -67,7 +73,9 @@ async function upload(name = ""): Promise<void> {
     const key = fileUpload({ maximumBytes: 65536, accept: ".pem,.key" });
     const event = await callScreen({
       id: "https-upload",
-      title: name ? "Replace certificate" : "Upload certificate",
+      title: name
+        ? localizedText(msg("certificates.replace_certificate"))
+        : localizedText(msg("certificates.upload_certificate")),
       schema,
       model,
       controls: [
@@ -87,7 +95,13 @@ async function upload(name = ""): Promise<void> {
           length: "long",
         },
       ],
-      header: { actions: [{ id: "save", label: "Save", kind: "primary" }] },
+      header: {
+        actions: [{
+          id: "save",
+          label: msg("certificates.save"),
+          kind: "primary",
+        }],
+      },
     });
     if (event.action === BACK_EVENT) return;
     if (event.action !== "save") continue;
@@ -134,12 +148,17 @@ async function detail(name: string): Promise<void> {
       })),
       header: {
         actions: [
-          { id: "upload", label: "Replace certificate" },
+          { id: "upload", label: msg("certificates.replace_certificate") },
           ...(record.source !== "provided"
-            ? [{ id: "renew", label: record.lastError ? "Retry" : "Renew" }]
+            ? [{
+              id: "renew",
+              label: record.lastError
+                ? localizedText(msg("certificates.retry"))
+                : localizedText(msg("certificates.renew")),
+            }]
             : []),
-          { id: "advanced", label: "Advanced" },
-          { id: "refresh", label: "Refresh" },
+          { id: "advanced", label: msg("certificates.advanced") },
+          { id: "refresh", label: msg("advanced.refresh") },
         ],
       },
     });
@@ -149,14 +168,19 @@ async function detail(name: string): Promise<void> {
       if (event.action === "renew") {
         const result = await issue(name, "renew");
         if (result.status === "busy") {
-          sendMessage("A certificate operation is already running", "info");
+          sendMessage(
+            localizedText(
+              msg("certificates.a_certificate_operation_is_already_running"),
+            ),
+            "info",
+          );
         } else savedMessage(result);
       }
       if (event.action === "advanced") {
         await presentModal(() =>
           callScreen({
             id: "https-certificate-advanced",
-            title: "Certificate details",
+            title: msg("certificates.certificate_details"),
             schema: certificateRecord,
             model: new Model(record),
             controls: [
