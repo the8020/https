@@ -117,6 +117,12 @@
     "validation.origin": "Använd en HTTP- eller HTTPS-origin utan autentiseringsuppgifter eller sökväg",
     "widgets.https.title": "HTTPS",
     "widgets.https.description": "Konfigurera HTTPS och certifikat",
-    "categories.administration.title": "Administration"
+    "categories.administration.title": "Administration",
+    "secret_usages.acme_account": "Konto hos HTTPS-certifikatutfärdare",
+    "secret_usages.local_certificate_authority": "Lokal HTTPS-certifikatutfärdare",
+    "secret_usages.certificate_name": "HTTPS-certifikat {name}",
+    "secret_usages.private_key": "Privat nyckel",
+    "secret_usages.pending_order_key": "Nyckel för en väntande certifikatbegäran",
+    "programs.secret-usages.description": "Lista HTTPS-nycklar som lagras i angivna hemligheter"
   }
 }

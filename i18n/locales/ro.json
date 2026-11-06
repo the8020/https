@@ -117,6 +117,12 @@
     "validation.origin": "Folosiți o origine HTTP sau HTTPS fără credențiale sau cale",
     "widgets.https.title": "HTTPS",
     "widgets.https.description": "Configurează HTTPS și certificatele",
-    "categories.administration.title": "Administrare"
+    "categories.administration.title": "Administrare",
+    "secret_usages.acme_account": "Cont la autoritatea de certificare HTTPS",
+    "secret_usages.local_certificate_authority": "Autoritate HTTPS locală",
+    "secret_usages.certificate_name": "Certificat HTTPS {name}",
+    "secret_usages.private_key": "Cheie privată",
+    "secret_usages.pending_order_key": "Cheia unei cereri de certificat în așteptare",
+    "programs.secret-usages.description": "Listează cheile HTTPS stocate în secretele indicate"
   }
 }

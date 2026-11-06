@@ -117,6 +117,12 @@
     "validation.origin": "Käytä HTTP- tai HTTPS-alkuperää ilman tunnistetietoja tai polkua",
     "widgets.https.title": "HTTPS",
     "widgets.https.description": "Määritä HTTPS ja varmenteet",
-    "categories.administration.title": "Hallinta"
+    "categories.administration.title": "Hallinta",
+    "secret_usages.acme_account": "HTTPS-varmentajan tili",
+    "secret_usages.local_certificate_authority": "Paikallinen HTTPS-varmentaja",
+    "secret_usages.certificate_name": "HTTPS-varmenne {name}",
+    "secret_usages.private_key": "Yksityinen avain",
+    "secret_usages.pending_order_key": "Odottavan varmennepyynnön avain",
+    "programs.secret-usages.description": "Luettele annettuihin salaisuuksiin tallennetut HTTPS-avaimet"
   }
 }

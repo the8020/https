@@ -117,6 +117,12 @@
     "validation.origin": "ใช้ต้นทาง HTTP หรือ HTTPS ที่ไม่มีข้อมูลรับรองหรือเส้นทาง",
     "widgets.https.title": "HTTPS",
     "widgets.https.description": "กำหนดค่า HTTPS และใบรับรอง",
-    "categories.administration.title": "การบริหาร"
+    "categories.administration.title": "การบริหาร",
+    "secret_usages.acme_account": "บัญชีหน่วยรับรองใบรับรอง HTTPS",
+    "secret_usages.local_certificate_authority": "หน่วยรับรอง HTTPS ภายใน",
+    "secret_usages.certificate_name": "ใบรับรอง HTTPS {name}",
+    "secret_usages.private_key": "คีย์ส่วนตัว",
+    "secret_usages.pending_order_key": "คีย์ของคำขอใบรับรองที่รอดำเนินการ",
+    "programs.secret-usages.description": "แสดงคีย์ HTTPS ที่เก็บในข้อมูลลับที่ระบุ"
   }
 }

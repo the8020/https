@@ -117,6 +117,12 @@
     "validation.origin": "Uporabite izvor HTTP ali HTTPS brez poverilnic ali poti",
     "widgets.https.title": "HTTPS",
     "widgets.https.description": "Nastavljanje HTTPS in potrdil",
-    "categories.administration.title": "Upravljanje"
+    "categories.administration.title": "Upravljanje",
+    "secret_usages.acme_account": "Račun pri overitelju HTTPS",
+    "secret_usages.local_certificate_authority": "Lokalni overitelj HTTPS",
+    "secret_usages.certificate_name": "Potrdilo HTTPS {name}",
+    "secret_usages.private_key": "Zasebni ključ",
+    "secret_usages.pending_order_key": "Ključ čakajoče zahteve za potrdilo",
+    "programs.secret-usages.description": "Prikaže ključe HTTPS, shranjene v podanih skrivnostih"
   }
 }

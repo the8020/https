@@ -117,6 +117,12 @@
     "validation.origin": "Gunakan asal HTTP atau HTTPS tanpa bukti kelayakan atau laluan",
     "widgets.https.title": "HTTPS",
     "widgets.https.description": "Konfigurasi HTTPS dan sijil",
-    "categories.administration.title": "Pentadbiran"
+    "categories.administration.title": "Pentadbiran",
+    "secret_usages.acme_account": "Akaun pihak berkuasa sijil HTTPS",
+    "secret_usages.local_certificate_authority": "Pihak berkuasa HTTPS setempat",
+    "secret_usages.certificate_name": "Sijil HTTPS {name}",
+    "secret_usages.private_key": "Kunci peribadi",
+    "secret_usages.pending_order_key": "Kunci permintaan sijil yang belum selesai",
+    "programs.secret-usages.description": "Senaraikan kunci HTTPS yang disimpan dalam rahsia yang diberikan"
   }
 }

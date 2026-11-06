@@ -117,6 +117,12 @@
     "validation.origin": "Kimlik bilgisi veya yol içermeyen HTTP ya da HTTPS kaynağı kullanın",
     "widgets.https.title": "HTTPS",
     "widgets.https.description": "HTTPS ve sertifikaları yapılandırın",
-    "categories.administration.title": "Yönetim"
+    "categories.administration.title": "Yönetim",
+    "secret_usages.acme_account": "HTTPS sertifika yetkilisi hesabı",
+    "secret_usages.local_certificate_authority": "Yerel HTTPS sertifika yetkilisi",
+    "secret_usages.certificate_name": "HTTPS sertifikası {name}",
+    "secret_usages.private_key": "Özel anahtar",
+    "secret_usages.pending_order_key": "Bekleyen sertifika isteğinin anahtarı",
+    "programs.secret-usages.description": "Verilen gizli bilgilerde saklanan HTTPS anahtarlarını listele"
   }
 }

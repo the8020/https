@@ -117,6 +117,12 @@
     "validation.origin": "از مبدأ HTTP یا HTTPS بدون اطلاعات ورود یا مسیر استفاده کنید",
     "widgets.https.title": "HTTPS",
     "widgets.https.description": "تنظیم HTTPS و گواهی‌ها",
-    "categories.administration.title": "مدیریت"
+    "categories.administration.title": "مدیریت",
+    "secret_usages.acme_account": "حساب مرجع صدور گواهی HTTPS",
+    "secret_usages.local_certificate_authority": "مرجع محلی HTTPS",
+    "secret_usages.certificate_name": "گواهی HTTPS {name}",
+    "secret_usages.private_key": "کلید خصوصی",
+    "secret_usages.pending_order_key": "کلید یک درخواست گواهی در انتظار",
+    "programs.secret-usages.description": "فهرست کلیدهای HTTPS ذخیره‌شده در رازهای داده‌شده"
   }
 }

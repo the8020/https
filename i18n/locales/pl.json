@@ -117,6 +117,12 @@
     "validation.origin": "Użyj źródła HTTP lub HTTPS bez danych uwierzytelniających ani ścieżki",
     "widgets.https.title": "HTTPS",
     "widgets.https.description": "Konfiguruje HTTPS i certyfikaty",
-    "categories.administration.title": "Administracja"
+    "categories.administration.title": "Administracja",
+    "secret_usages.acme_account": "Konto w urzędzie certyfikacji HTTPS",
+    "secret_usages.local_certificate_authority": "Lokalny urząd certyfikacji HTTPS",
+    "secret_usages.certificate_name": "Certyfikat HTTPS {name}",
+    "secret_usages.private_key": "Klucz prywatny",
+    "secret_usages.pending_order_key": "Klucz oczekującego żądania certyfikatu",
+    "programs.secret-usages.description": "Wyświetla klucze HTTPS zapisane w podanych sekretach"
   }
 }

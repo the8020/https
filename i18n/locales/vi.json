@@ -117,6 +117,12 @@
     "validation.origin": "Dùng địa chỉ gốc HTTP hoặc HTTPS không chứa thông tin đăng nhập hay đường dẫn",
     "widgets.https.title": "HTTPS",
     "widgets.https.description": "Cấu hình HTTPS và chứng chỉ",
-    "categories.administration.title": "Quản trị"
+    "categories.administration.title": "Quản trị",
+    "secret_usages.acme_account": "Tài khoản cơ quan cấp chứng chỉ HTTPS",
+    "secret_usages.local_certificate_authority": "Cơ quan HTTPS cục bộ",
+    "secret_usages.certificate_name": "Chứng chỉ HTTPS {name}",
+    "secret_usages.private_key": "Khóa riêng",
+    "secret_usages.pending_order_key": "Khóa của yêu cầu chứng chỉ đang chờ",
+    "programs.secret-usages.description": "Liệt kê các khóa HTTPS được lưu trong các bí mật đã cho"
   }
 }

@@ -26,6 +26,9 @@ Parent DOX: [HTTPS](../AGENTS.md).
 - Snapshot initialization ensures the single package maintenance schedule.
   Issue/renew and scheduled maintenance share the same fenced operation API.
   Issuance reports local application separately from successful storage.
+- `secret-usages` implements the `the8020/secrets` usage contract for the ACME
+  account, local certificate authority, certificate version and pending order
+  keys, so their secrets cannot be deleted from the Secrets screen.
 
 # Work Guidance
 

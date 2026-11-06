@@ -117,6 +117,12 @@
     "validation.origin": "Izmantojiet HTTP vai HTTPS izcelsmes adresi bez autentifikācijas datiem un ceļa",
     "widgets.https.title": "HTTPS",
     "widgets.https.description": "Konfigurēt HTTPS un sertifikātus",
-    "categories.administration.title": "Administrēšana"
+    "categories.administration.title": "Administrēšana",
+    "secret_usages.acme_account": "HTTPS sertificēšanas iestādes konts",
+    "secret_usages.local_certificate_authority": "Lokālā HTTPS sertificēšanas iestāde",
+    "secret_usages.certificate_name": "HTTPS sertifikāts {name}",
+    "secret_usages.private_key": "Privātā atslēga",
+    "secret_usages.pending_order_key": "Gaidoša sertifikāta pieprasījuma atslēga",
+    "programs.secret-usages.description": "Uzskaitīt HTTPS atslēgas, kas glabātas norādītajos noslēpumos"
   }
 }

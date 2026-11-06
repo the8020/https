@@ -117,6 +117,12 @@
     "validation.origin": "Gunakan origin HTTP atau HTTPS tanpa kredensial atau path",
     "widgets.https.title": "HTTPS",
     "widgets.https.description": "Konfigurasi HTTPS dan sertifikat",
-    "categories.administration.title": "Administrasi"
+    "categories.administration.title": "Administrasi",
+    "secret_usages.acme_account": "Akun otoritas sertifikat HTTPS",
+    "secret_usages.local_certificate_authority": "Otoritas HTTPS lokal",
+    "secret_usages.certificate_name": "Sertifikat HTTPS {name}",
+    "secret_usages.private_key": "Kunci privat",
+    "secret_usages.pending_order_key": "Kunci permintaan sertifikat yang tertunda",
+    "programs.secret-usages.description": "Daftar kunci HTTPS yang disimpan dalam rahasia tertentu"
   }
 }

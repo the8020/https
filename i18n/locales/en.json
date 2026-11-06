@@ -117,6 +117,12 @@
     "validation.origin": "Use an HTTP or HTTPS origin without credentials or a path",
     "widgets.https.title": "HTTPS",
     "widgets.https.description": "Configure HTTPS and certificates",
-    "categories.administration.title": "Administration"
+    "categories.administration.title": "Administration",
+    "secret_usages.acme_account": "HTTPS certificate authority account",
+    "secret_usages.local_certificate_authority": "HTTPS local certificate authority",
+    "secret_usages.certificate_name": "HTTPS certificate {name}",
+    "secret_usages.private_key": "Private key",
+    "secret_usages.pending_order_key": "Key of a pending certificate request",
+    "programs.secret-usages.description": "Report HTTPS keys stored in given secrets"
   }
 }

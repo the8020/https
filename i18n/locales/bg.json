@@ -117,6 +117,12 @@
     "validation.origin": "Използвайте HTTP или HTTPS произход без идентификационни данни или път",
     "widgets.https.title": "HTTPS",
     "widgets.https.description": "Настройване на HTTPS и сертификати",
-    "categories.administration.title": "Администрация"
+    "categories.administration.title": "Администрация",
+    "secret_usages.acme_account": "Акаунт при HTTPS сертифициращ орган",
+    "secret_usages.local_certificate_authority": "Локален HTTPS издател",
+    "secret_usages.certificate_name": "HTTPS сертификат {name}",
+    "secret_usages.private_key": "Частен ключ",
+    "secret_usages.pending_order_key": "Ключ на чакаща заявка за сертификат",
+    "programs.secret-usages.description": "Показва HTTPS ключовете, съхранени в дадените тайни"
   }
 }

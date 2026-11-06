@@ -117,6 +117,12 @@
     "validation.origin": "Bruk en HTTP- eller HTTPS-origin uten påloggingsinformasjon eller sti",
     "widgets.https.title": "HTTPS",
     "widgets.https.description": "Konfigurer HTTPS og sertifikater",
-    "categories.administration.title": "Administrasjon"
+    "categories.administration.title": "Administrasjon",
+    "secret_usages.acme_account": "Konto hos HTTPS-sertifikatutsteder",
+    "secret_usages.local_certificate_authority": "Lokal HTTPS-sertifikatutsteder",
+    "secret_usages.certificate_name": "HTTPS-sertifikat {name}",
+    "secret_usages.private_key": "Privat nøkkel",
+    "secret_usages.pending_order_key": "Nøkkel for en ventende sertifikatforespørsel",
+    "programs.secret-usages.description": "Vis HTTPS-nøkler lagret i de angitte hemmelighetene"
   }
 }

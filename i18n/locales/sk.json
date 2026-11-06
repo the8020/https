@@ -117,6 +117,12 @@
     "validation.origin": "Použite HTTP alebo HTTPS adresu servera bez prihlasovacích údajov a cesty",
     "widgets.https.title": "HTTPS",
     "widgets.https.description": "Nastavenie HTTPS a certifikátov",
-    "categories.administration.title": "Správa"
+    "categories.administration.title": "Správa",
+    "secret_usages.acme_account": "Účet u certifikačnej autority HTTPS",
+    "secret_usages.local_certificate_authority": "Miestna autorita HTTPS",
+    "secret_usages.certificate_name": "Certifikát HTTPS {name}",
+    "secret_usages.private_key": "Súkromný kľúč",
+    "secret_usages.pending_order_key": "Kľúč čakajúcej žiadosti o certifikát",
+    "programs.secret-usages.description": "Výpis kľúčov HTTPS uložených v zadaných tajných údajoch"
   }
 }

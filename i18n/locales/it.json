@@ -117,6 +117,12 @@
     "validation.origin": "Usa un'origine HTTP o HTTPS senza credenziali né percorso",
     "widgets.https.title": "HTTPS",
     "widgets.https.description": "Configura HTTPS e certificati",
-    "categories.administration.title": "Amministrazione"
+    "categories.administration.title": "Amministrazione",
+    "secret_usages.acme_account": "Account dell'autorità di certificazione HTTPS",
+    "secret_usages.local_certificate_authority": "Autorità HTTPS locale",
+    "secret_usages.certificate_name": "Certificato HTTPS {name}",
+    "secret_usages.private_key": "Chiave privata",
+    "secret_usages.pending_order_key": "Chiave di una richiesta di certificato in sospeso",
+    "programs.secret-usages.description": "Elenca le chiavi HTTPS salvate nei segreti indicati"
   }
 }

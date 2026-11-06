@@ -117,6 +117,12 @@
     "validation.origin": "Verwenden Sie einen HTTP- oder HTTPS-Ursprung ohne Zugangsdaten oder Pfad",
     "widgets.https.title": "HTTPS",
     "widgets.https.description": "HTTPS und Zertifikate konfigurieren",
-    "categories.administration.title": "Verwaltung"
+    "categories.administration.title": "Verwaltung",
+    "secret_usages.acme_account": "Konto bei der HTTPS-Zertifizierungsstelle",
+    "secret_usages.local_certificate_authority": "Lokale HTTPS-Zertifizierungsstelle",
+    "secret_usages.certificate_name": "HTTPS-Zertifikat {name}",
+    "secret_usages.private_key": "Privater Schlüssel",
+    "secret_usages.pending_order_key": "Schlüssel einer ausstehenden Zertifikatsanforderung",
+    "programs.secret-usages.description": "In den angegebenen Geheimnissen gespeicherte HTTPS-Schlüssel auflisten"
   }
 }

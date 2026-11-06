@@ -117,6 +117,12 @@
     "validation.origin": "Χρησιμοποιήστε προέλευση HTTP ή HTTPS χωρίς διαπιστευτήρια ή διαδρομή",
     "widgets.https.title": "HTTPS",
     "widgets.https.description": "Ρύθμιση HTTPS και πιστοποιητικών",
-    "categories.administration.title": "Διαχείριση"
+    "categories.administration.title": "Διαχείριση",
+    "secret_usages.acme_account": "Λογαριασμός αρχής πιστοποίησης HTTPS",
+    "secret_usages.local_certificate_authority": "Τοπική αρχή HTTPS",
+    "secret_usages.certificate_name": "Πιστοποιητικό HTTPS {name}",
+    "secret_usages.private_key": "Ιδιωτικό κλειδί",
+    "secret_usages.pending_order_key": "Κλειδί εκκρεμούς αιτήματος πιστοποιητικού",
+    "programs.secret-usages.description": "Λίστα κλειδιών HTTPS που είναι αποθηκευμένα στα δεδομένα απόρρητα"
   }
 }

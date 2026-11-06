@@ -117,6 +117,12 @@
     "validation.origin": "HTTP- vagy HTTPS-eredetet használjon hitelesítő adatok és útvonal nélkül",
     "widgets.https.title": "HTTPS",
     "widgets.https.description": "HTTPS és tanúsítványok beállítása",
-    "categories.administration.title": "Adminisztráció"
+    "categories.administration.title": "Adminisztráció",
+    "secret_usages.acme_account": "HTTPS-hitelesítésszolgáltatói fiók",
+    "secret_usages.local_certificate_authority": "Helyi HTTPS-hitelesítő",
+    "secret_usages.certificate_name": "HTTPS-tanúsítvány: {name}",
+    "secret_usages.private_key": "Privát kulcs",
+    "secret_usages.pending_order_key": "Függőben lévő tanúsítványkérelem kulcsa",
+    "programs.secret-usages.description": "A megadott titkokban tárolt HTTPS-kulcsok listázása"
   }
 }

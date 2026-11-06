@@ -117,6 +117,12 @@
     "validation.origin": "Koristi HTTP ili HTTPS poreklo bez akreditiva ili putanje",
     "widgets.https.title": "HTTPS",
     "widgets.https.description": "Podešavanje HTTPS-a i sertifikata",
-    "categories.administration.title": "Administracija"
+    "categories.administration.title": "Administracija",
+    "secret_usages.acme_account": "Nalog kod HTTPS sertifikacionog tela",
+    "secret_usages.local_certificate_authority": "Lokalno HTTPS sertifikaciono telo",
+    "secret_usages.certificate_name": "HTTPS sertifikat {name}",
+    "secret_usages.private_key": "Privatni ključ",
+    "secret_usages.pending_order_key": "Ključ zahteva za sertifikat na čekanju",
+    "programs.secret-usages.description": "Prikazuje HTTPS ključeve sačuvane u zadatim tajnama"
   }
 }

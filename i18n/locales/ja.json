@@ -117,6 +117,12 @@
     "validation.origin": "認証情報やパスを含まない HTTP または HTTPS のオリジンを使用してください",
     "widgets.https.title": "HTTPS",
     "widgets.https.description": "HTTPS と証明書の設定",
-    "categories.administration.title": "管理"
+    "categories.administration.title": "管理",
+    "secret_usages.acme_account": "HTTPS 認証局アカウント",
+    "secret_usages.local_certificate_authority": "ローカル HTTPS 認証局",
+    "secret_usages.certificate_name": "HTTPS 証明書 {name}",
+    "secret_usages.private_key": "秘密鍵",
+    "secret_usages.pending_order_key": "保留中の証明書リクエストの鍵",
+    "programs.secret-usages.description": "指定したシークレットに保存された HTTPS 鍵を一覧表示"
   }
 }

@@ -117,6 +117,12 @@
     "validation.origin": "Utilitza un origen HTTP o HTTPS sense credencials ni camí",
     "widgets.https.title": "HTTPS",
     "widgets.https.description": "Configura HTTPS i certificats",
-    "categories.administration.title": "Administració"
+    "categories.administration.title": "Administració",
+    "secret_usages.acme_account": "Compte de l'autoritat de certificació HTTPS",
+    "secret_usages.local_certificate_authority": "Autoritat HTTPS local",
+    "secret_usages.certificate_name": "Certificat HTTPS {name}",
+    "secret_usages.private_key": "Clau privada",
+    "secret_usages.pending_order_key": "Clau d'una sol·licitud de certificat pendent",
+    "programs.secret-usages.description": "Llista les claus HTTPS desades als secrets indicats"
   }
 }

@@ -117,6 +117,12 @@
     "validation.origin": "Gumamit ng HTTP o HTTPS origin na walang kredensyal o path",
     "widgets.https.title": "HTTPS",
     "widgets.https.description": "I-configure ang HTTPS at mga sertipiko",
-    "categories.administration.title": "Administrasyon"
+    "categories.administration.title": "Administrasyon",
+    "secret_usages.acme_account": "Account sa awtoridad ng sertipiko ng HTTPS",
+    "secret_usages.local_certificate_authority": "Lokal na awtoridad ng HTTPS",
+    "secret_usages.certificate_name": "Sertipiko ng HTTPS {name}",
+    "secret_usages.private_key": "Pribadong susi",
+    "secret_usages.pending_order_key": "Susi ng nakabinbing kahilingan ng sertipiko",
+    "programs.secret-usages.description": "Ilista ang mga susi ng HTTPS na nakaimbak sa mga ibinigay na sikreto"
   }
 }

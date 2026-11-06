@@ -117,6 +117,12 @@
     "validation.origin": "請使用不帶認證資訊或路徑的 HTTP 或 HTTPS 源位址",
     "widgets.https.title": "HTTPS",
     "widgets.https.description": "設定 HTTPS 和憑證",
-    "categories.administration.title": "管理"
+    "categories.administration.title": "管理",
+    "secret_usages.acme_account": "HTTPS 憑證授權單位帳戶",
+    "secret_usages.local_certificate_authority": "本機 HTTPS 憑證授權單位",
+    "secret_usages.certificate_name": "HTTPS 憑證 {name}",
+    "secret_usages.private_key": "私密金鑰",
+    "secret_usages.pending_order_key": "待處理憑證要求的金鑰",
+    "programs.secret-usages.description": "列出儲存在指定機密中的 HTTPS 金鑰"
   }
 }

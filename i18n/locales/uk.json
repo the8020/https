@@ -117,6 +117,12 @@
     "validation.origin": "Використовуйте HTTP- або HTTPS-адресу без облікових даних і шляху",
     "widgets.https.title": "HTTPS",
     "widgets.https.description": "Налаштування HTTPS і сертифікатів",
-    "categories.administration.title": "Адміністрування"
+    "categories.administration.title": "Адміністрування",
+    "secret_usages.acme_account": "Обліковий запис у центрі сертифікації HTTPS",
+    "secret_usages.local_certificate_authority": "Локальний центр HTTPS",
+    "secret_usages.certificate_name": "Сертифікат HTTPS {name}",
+    "secret_usages.private_key": "Приватний ключ",
+    "secret_usages.pending_order_key": "Ключ незавершеного запиту на сертифікат",
+    "programs.secret-usages.description": "Показує ключі HTTPS, збережені в заданих секретах"
   }
 }

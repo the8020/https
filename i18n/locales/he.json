@@ -117,6 +117,12 @@
     "validation.origin": "יש להשתמש במקור HTTP או HTTPS ללא פרטי גישה או נתיב",
     "widgets.https.title": "HTTPS",
     "widgets.https.description": "הגדרת HTTPS ותעודות",
-    "categories.administration.title": "ניהול"
+    "categories.administration.title": "ניהול",
+    "secret_usages.acme_account": "חשבון ברשות האישורים של HTTPS",
+    "secret_usages.local_certificate_authority": "רשות HTTPS מקומית",
+    "secret_usages.certificate_name": "תעודת HTTPS {name}",
+    "secret_usages.private_key": "מפתח פרטי",
+    "secret_usages.pending_order_key": "מפתח של בקשת תעודה ממתינה",
+    "programs.secret-usages.description": "הצגת מפתחות HTTPS השמורים בסודות שצוינו"
   }
 }

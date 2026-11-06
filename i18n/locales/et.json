@@ -117,6 +117,12 @@
     "validation.origin": "Kasuta HTTP- või HTTPS-päritolu ilma pääsuandmete või teeta",
     "widgets.https.title": "HTTPS",
     "widgets.https.description": "Seadista HTTPS ja sertifikaadid",
-    "categories.administration.title": "Haldus"
+    "categories.administration.title": "Haldus",
+    "secret_usages.acme_account": "HTTPS-sertimiskeskuse konto",
+    "secret_usages.local_certificate_authority": "Kohalik HTTPS-sertimiskeskus",
+    "secret_usages.certificate_name": "HTTPS-sertifikaat {name}",
+    "secret_usages.private_key": "Privaatvõti",
+    "secret_usages.pending_order_key": "Ootel sertifikaaditaotluse võti",
+    "programs.secret-usages.description": "Loetle antud saladustes talletatud HTTPS-võtmed"
   }
 }

@@ -117,6 +117,12 @@
     "validation.origin": "Notaðu HTTP- eða HTTPS-uppruna án auðkennisgagna eða slóðar",
     "widgets.https.title": "HTTPS",
     "widgets.https.description": "Stilla HTTPS og vottorð",
-    "categories.administration.title": "Stjórnun"
+    "categories.administration.title": "Stjórnun",
+    "secret_usages.acme_account": "Aðgangur hjá HTTPS-vottunaraðila",
+    "secret_usages.local_certificate_authority": "Staðbundinn HTTPS-vottunaraðili",
+    "secret_usages.certificate_name": "HTTPS-vottorð {name}",
+    "secret_usages.private_key": "Einkalykill",
+    "secret_usages.pending_order_key": "Lykill óafgreiddrar vottorðsbeiðni",
+    "programs.secret-usages.description": "Birta HTTPS-lykla sem geymdir eru í tilgreindum leyndarmálum"
   }
 }

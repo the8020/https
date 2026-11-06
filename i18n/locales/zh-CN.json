@@ -117,6 +117,12 @@
     "validation.origin": "请使用不带凭据或路径的 HTTP 或 HTTPS 源地址",
     "widgets.https.title": "HTTPS",
     "widgets.https.description": "配置 HTTPS 和证书",
-    "categories.administration.title": "管理"
+    "categories.administration.title": "管理",
+    "secret_usages.acme_account": "HTTPS 认证机构账户",
+    "secret_usages.local_certificate_authority": "本地 HTTPS 认证机构",
+    "secret_usages.certificate_name": "HTTPS 证书 {name}",
+    "secret_usages.private_key": "私钥",
+    "secret_usages.pending_order_key": "待处理证书请求的密钥",
+    "programs.secret-usages.description": "列出存储在指定机密中的 HTTPS 密钥"
   }
 }

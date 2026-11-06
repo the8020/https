@@ -117,6 +117,12 @@
     "validation.origin": "استخدم أصل HTTP أو HTTPS دون بيانات اعتماد أو مسار",
     "widgets.https.title": "HTTPS",
     "widgets.https.description": "إعداد HTTPS والشهادات",
-    "categories.administration.title": "الإدارة"
+    "categories.administration.title": "الإدارة",
+    "secret_usages.acme_account": "حساب مرجع شهادات HTTPS",
+    "secret_usages.local_certificate_authority": "مرجع HTTPS المحلي",
+    "secret_usages.certificate_name": "شهادة HTTPS {name}",
+    "secret_usages.private_key": "المفتاح الخاص",
+    "secret_usages.pending_order_key": "مفتاح طلب شهادة معلّق",
+    "programs.secret-usages.description": "عرض مفاتيح HTTPS المخزنة في الأسرار المحددة"
   }
 }

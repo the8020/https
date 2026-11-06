@@ -117,6 +117,12 @@
     "validation.origin": "Gebruik een HTTP- of HTTPS-origin zonder inloggegevens of pad",
     "widgets.https.title": "HTTPS",
     "widgets.https.description": "HTTPS en certificaten configureren",
-    "categories.administration.title": "Beheer"
+    "categories.administration.title": "Beheer",
+    "secret_usages.acme_account": "Account bij HTTPS-certificaatautoriteit",
+    "secret_usages.local_certificate_authority": "Lokale HTTPS-autoriteit",
+    "secret_usages.certificate_name": "HTTPS-certificaat {name}",
+    "secret_usages.private_key": "Privésleutel",
+    "secret_usages.pending_order_key": "Sleutel van een openstaande certificaataanvraag",
+    "programs.secret-usages.description": "HTTPS-sleutels weergeven die in de opgegeven geheimen zijn opgeslagen"
   }
 }

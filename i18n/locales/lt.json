@@ -117,6 +117,12 @@
     "validation.origin": "Naudokite HTTP arba HTTPS kilmę be prisijungimo duomenų ar kelio",
     "widgets.https.title": "HTTPS",
     "widgets.https.description": "Konfigūruoti HTTPS ir sertifikatus",
-    "categories.administration.title": "Administravimas"
+    "categories.administration.title": "Administravimas",
+    "secret_usages.acme_account": "HTTPS sertifikavimo įstaigos paskyra",
+    "secret_usages.local_certificate_authority": "Vietinė HTTPS sertifikavimo įstaiga",
+    "secret_usages.certificate_name": "HTTPS sertifikatas {name}",
+    "secret_usages.private_key": "Privatusis raktas",
+    "secret_usages.pending_order_key": "Laukiančios sertifikato užklausos raktas",
+    "programs.secret-usages.description": "Rodyti HTTPS raktus, saugomus nurodytose paslaptyse"
   }
 }
