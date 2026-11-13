@@ -1,0 +1,3 @@
+["the8020.https.viewer"]
+description = "View HTTPS settings and the certificate list."
+permissions = { "the8020.https.configuration.view" = "*" }

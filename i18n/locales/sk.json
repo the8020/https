@@ -123,6 +123,7 @@
     "secret_usages.certificate_name": "Certifikát HTTPS {name}",
     "secret_usages.private_key": "Súkromný kľúč",
     "secret_usages.pending_order_key": "Kľúč čakajúcej žiadosti o certifikát",
-    "programs.secret-usages.description": "Výpis kľúčov HTTPS uložených v zadaných tajných údajoch"
+    "programs.secret-usages.description": "Výpis kľúčov HTTPS uložených v zadaných tajných údajoch",
+    "declarations.auth-roles.the8020.https.viewer": "Zobraziť nastavenia HTTPS a zoznam certifikátov."
   }
 }

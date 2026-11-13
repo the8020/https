@@ -123,6 +123,7 @@
     "secret_usages.certificate_name": "HTTPS sertifikası {name}",
     "secret_usages.private_key": "Özel anahtar",
     "secret_usages.pending_order_key": "Bekleyen sertifika isteğinin anahtarı",
-    "programs.secret-usages.description": "Verilen gizli bilgilerde saklanan HTTPS anahtarlarını listele"
+    "programs.secret-usages.description": "Verilen gizli bilgilerde saklanan HTTPS anahtarlarını listele",
+    "declarations.auth-roles.the8020.https.viewer": "HTTPS ayarlarını ve sertifika listesini görüntüleme."
   }
 }

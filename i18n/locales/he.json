@@ -123,6 +123,7 @@
     "secret_usages.certificate_name": "תעודת HTTPS {name}",
     "secret_usages.private_key": "מפתח פרטי",
     "secret_usages.pending_order_key": "מפתח של בקשת תעודה ממתינה",
-    "programs.secret-usages.description": "הצגת מפתחות HTTPS השמורים בסודות שצוינו"
+    "programs.secret-usages.description": "הצגת מפתחות HTTPS השמורים בסודות שצוינו",
+    "declarations.auth-roles.the8020.https.viewer": "הצגת הגדרות HTTPS ורשימת האישורים."
   }
 }

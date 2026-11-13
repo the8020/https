@@ -123,6 +123,7 @@
     "secret_usages.certificate_name": "Certificat HTTPS {name}",
     "secret_usages.private_key": "Clé privée",
     "secret_usages.pending_order_key": "Clé d’une demande de certificat en attente",
-    "programs.secret-usages.description": "Lister les clés HTTPS stockées dans les secrets indiqués"
+    "programs.secret-usages.description": "Lister les clés HTTPS stockées dans les secrets indiqués",
+    "declarations.auth-roles.the8020.https.viewer": "Afficher les paramètres HTTPS et la liste des certificats."
   }
 }

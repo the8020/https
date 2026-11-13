@@ -123,6 +123,7 @@
     "secret_usages.certificate_name": "HTTPS сертификат {name}",
     "secret_usages.private_key": "Частен ключ",
     "secret_usages.pending_order_key": "Ключ на чакаща заявка за сертификат",
-    "programs.secret-usages.description": "Показва HTTPS ключовете, съхранени в дадените тайни"
+    "programs.secret-usages.description": "Показва HTTPS ключовете, съхранени в дадените тайни",
+    "declarations.auth-roles.the8020.https.viewer": "Преглед на настройките на HTTPS и списъка със сертификати."
   }
 }

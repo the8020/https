@@ -7,6 +7,9 @@ Parent DOX: [HTTPS](../AGENTS.md).
 # Ownership
 
 - Own advisory `auth.toml`; execution enforces checks through auth.
+- Own `auth-roles.toml`: `the8020.https.viewer` grants
+  `the8020.https.configuration.view` so application roles can include read-only
+  HTTPS and certificate access.
 
 # Local Contracts
 

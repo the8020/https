@@ -123,6 +123,7 @@
     "secret_usages.certificate_name": "HTTPS sertifikāts {name}",
     "secret_usages.private_key": "Privātā atslēga",
     "secret_usages.pending_order_key": "Gaidoša sertifikāta pieprasījuma atslēga",
-    "programs.secret-usages.description": "Uzskaitīt HTTPS atslēgas, kas glabātas norādītajos noslēpumos"
+    "programs.secret-usages.description": "Uzskaitīt HTTPS atslēgas, kas glabātas norādītajos noslēpumos",
+    "declarations.auth-roles.the8020.https.viewer": "Skatīt HTTPS iestatījumus un sertifikātu sarakstu."
   }
 }

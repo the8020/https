@@ -123,6 +123,7 @@
     "secret_usages.certificate_name": "HTTPS-sertifikaat {name}",
     "secret_usages.private_key": "Privaatvõti",
     "secret_usages.pending_order_key": "Ootel sertifikaaditaotluse võti",
-    "programs.secret-usages.description": "Loetle antud saladustes talletatud HTTPS-võtmed"
+    "programs.secret-usages.description": "Loetle antud saladustes talletatud HTTPS-võtmed",
+    "declarations.auth-roles.the8020.https.viewer": "Vaata HTTPS-i seadeid ja sertifikaatide loendit."
   }
 }

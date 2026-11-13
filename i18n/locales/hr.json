@@ -123,6 +123,7 @@
     "secret_usages.certificate_name": "HTTPS certifikat {name}",
     "secret_usages.private_key": "Privatni ključ",
     "secret_usages.pending_order_key": "Ključ zahtjeva za certifikat na čekanju",
-    "programs.secret-usages.description": "Prikazuje HTTPS ključeve spremljene u zadanim tajnama"
+    "programs.secret-usages.description": "Prikazuje HTTPS ključeve spremljene u zadanim tajnama",
+    "declarations.auth-roles.the8020.https.viewer": "Pregled postavki HTTPS-a i popisa certifikata."
   }
 }

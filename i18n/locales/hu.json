@@ -123,6 +123,7 @@
     "secret_usages.certificate_name": "HTTPS-tanúsítvány: {name}",
     "secret_usages.private_key": "Privát kulcs",
     "secret_usages.pending_order_key": "Függőben lévő tanúsítványkérelem kulcsa",
-    "programs.secret-usages.description": "A megadott titkokban tárolt HTTPS-kulcsok listázása"
+    "programs.secret-usages.description": "A megadott titkokban tárolt HTTPS-kulcsok listázása",
+    "declarations.auth-roles.the8020.https.viewer": "A HTTPS-beállítások és a tanúsítványlista megtekintése."
   }
 }

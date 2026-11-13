@@ -123,6 +123,7 @@
     "secret_usages.certificate_name": "Chứng chỉ HTTPS {name}",
     "secret_usages.private_key": "Khóa riêng",
     "secret_usages.pending_order_key": "Khóa của yêu cầu chứng chỉ đang chờ",
-    "programs.secret-usages.description": "Liệt kê các khóa HTTPS được lưu trong các bí mật đã cho"
+    "programs.secret-usages.description": "Liệt kê các khóa HTTPS được lưu trong các bí mật đã cho",
+    "declarations.auth-roles.the8020.https.viewer": "Xem cài đặt HTTPS và danh sách chứng chỉ."
   }
 }

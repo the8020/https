@@ -123,6 +123,7 @@
     "secret_usages.certificate_name": "HTTPS-certifikat {name}",
     "secret_usages.private_key": "Privat nøgle",
     "secret_usages.pending_order_key": "Nøgle til en ventende certifikatanmodning",
-    "programs.secret-usages.description": "Vis HTTPS-nøgler gemt i de angivne hemmeligheder"
+    "programs.secret-usages.description": "Vis HTTPS-nøgler gemt i de angivne hemmeligheder",
+    "declarations.auth-roles.the8020.https.viewer": "Se HTTPS-indstillinger og listen over certifikater."
   }
 }

@@ -123,6 +123,7 @@
     "secret_usages.certificate_name": "Certificat HTTPS {name}",
     "secret_usages.private_key": "Cheie privată",
     "secret_usages.pending_order_key": "Cheia unei cereri de certificat în așteptare",
-    "programs.secret-usages.description": "Listează cheile HTTPS stocate în secretele indicate"
+    "programs.secret-usages.description": "Listează cheile HTTPS stocate în secretele indicate",
+    "declarations.auth-roles.the8020.https.viewer": "Vizualizarea setărilor HTTPS și a listei de certificate."
   }
 }

@@ -123,6 +123,7 @@
     "secret_usages.certificate_name": "شهادة HTTPS {name}",
     "secret_usages.private_key": "المفتاح الخاص",
     "secret_usages.pending_order_key": "مفتاح طلب شهادة معلّق",
-    "programs.secret-usages.description": "عرض مفاتيح HTTPS المخزنة في الأسرار المحددة"
+    "programs.secret-usages.description": "عرض مفاتيح HTTPS المخزنة في الأسرار المحددة",
+    "declarations.auth-roles.the8020.https.viewer": "عرض إعدادات HTTPS وقائمة الشهادات."
   }
 }

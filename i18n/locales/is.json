@@ -123,6 +123,7 @@
     "secret_usages.certificate_name": "HTTPS-vottorð {name}",
     "secret_usages.private_key": "Einkalykill",
     "secret_usages.pending_order_key": "Lykill óafgreiddrar vottorðsbeiðni",
-    "programs.secret-usages.description": "Birta HTTPS-lykla sem geymdir eru í tilgreindum leyndarmálum"
+    "programs.secret-usages.description": "Birta HTTPS-lykla sem geymdir eru í tilgreindum leyndarmálum",
+    "declarations.auth-roles.the8020.https.viewer": "Skoða HTTPS-stillingar og lista yfir skilríki."
   }
 }

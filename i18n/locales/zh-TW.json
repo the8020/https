@@ -123,6 +123,7 @@
     "secret_usages.certificate_name": "HTTPS 憑證 {name}",
     "secret_usages.private_key": "私密金鑰",
     "secret_usages.pending_order_key": "待處理憑證要求的金鑰",
-    "programs.secret-usages.description": "列出儲存在指定機密中的 HTTPS 金鑰"
+    "programs.secret-usages.description": "列出儲存在指定機密中的 HTTPS 金鑰",
+    "declarations.auth-roles.the8020.https.viewer": "檢視 HTTPS 設定和憑證清單。"
   }
 }

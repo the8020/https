@@ -123,6 +123,7 @@
     "secret_usages.certificate_name": "Сертифікат HTTPS {name}",
     "secret_usages.private_key": "Приватний ключ",
     "secret_usages.pending_order_key": "Ключ незавершеного запиту на сертифікат",
-    "programs.secret-usages.description": "Показує ключі HTTPS, збережені в заданих секретах"
+    "programs.secret-usages.description": "Показує ключі HTTPS, збережені в заданих секретах",
+    "declarations.auth-roles.the8020.https.viewer": "Перегляд налаштувань HTTPS і списку сертифікатів."
   }
 }

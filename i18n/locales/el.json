@@ -123,6 +123,7 @@
     "secret_usages.certificate_name": "Πιστοποιητικό HTTPS {name}",
     "secret_usages.private_key": "Ιδιωτικό κλειδί",
     "secret_usages.pending_order_key": "Κλειδί εκκρεμούς αιτήματος πιστοποιητικού",
-    "programs.secret-usages.description": "Λίστα κλειδιών HTTPS που είναι αποθηκευμένα στα δεδομένα απόρρητα"
+    "programs.secret-usages.description": "Λίστα κλειδιών HTTPS που είναι αποθηκευμένα στα δεδομένα απόρρητα",
+    "declarations.auth-roles.the8020.https.viewer": "Προβολή ρυθμίσεων HTTPS και της λίστας πιστοποιητικών."
   }
 }

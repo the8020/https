@@ -123,6 +123,7 @@
     "secret_usages.certificate_name": "Sijil HTTPS {name}",
     "secret_usages.private_key": "Kunci peribadi",
     "secret_usages.pending_order_key": "Kunci permintaan sijil yang belum selesai",
-    "programs.secret-usages.description": "Senaraikan kunci HTTPS yang disimpan dalam rahsia yang diberikan"
+    "programs.secret-usages.description": "Senaraikan kunci HTTPS yang disimpan dalam rahsia yang diberikan",
+    "declarations.auth-roles.the8020.https.viewer": "Lihat tetapan HTTPS dan senarai sijil."
   }
 }

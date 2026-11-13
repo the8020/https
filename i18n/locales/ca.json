@@ -123,6 +123,7 @@
     "secret_usages.certificate_name": "Certificat HTTPS {name}",
     "secret_usages.private_key": "Clau privada",
     "secret_usages.pending_order_key": "Clau d'una sol·licitud de certificat pendent",
-    "programs.secret-usages.description": "Llista les claus HTTPS desades als secrets indicats"
+    "programs.secret-usages.description": "Llista les claus HTTPS desades als secrets indicats",
+    "declarations.auth-roles.the8020.https.viewer": "Veure la configuració HTTPS i la llista de certificats."
   }
 }

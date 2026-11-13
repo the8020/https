@@ -123,6 +123,7 @@
     "secret_usages.certificate_name": "Sertipiko ng HTTPS {name}",
     "secret_usages.private_key": "Pribadong susi",
     "secret_usages.pending_order_key": "Susi ng nakabinbing kahilingan ng sertipiko",
-    "programs.secret-usages.description": "Ilista ang mga susi ng HTTPS na nakaimbak sa mga ibinigay na sikreto"
+    "programs.secret-usages.description": "Ilista ang mga susi ng HTTPS na nakaimbak sa mga ibinigay na sikreto",
+    "declarations.auth-roles.the8020.https.viewer": "Tingnan ang mga setting ng HTTPS at ang listahan ng mga sertipiko."
   }
 }

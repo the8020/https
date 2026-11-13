@@ -123,6 +123,7 @@
     "secret_usages.certificate_name": "HTTPS sertifikatas {name}",
     "secret_usages.private_key": "Privatusis raktas",
     "secret_usages.pending_order_key": "Laukiančios sertifikato užklausos raktas",
-    "programs.secret-usages.description": "Rodyti HTTPS raktus, saugomus nurodytose paslaptyse"
+    "programs.secret-usages.description": "Rodyti HTTPS raktus, saugomus nurodytose paslaptyse",
+    "declarations.auth-roles.the8020.https.viewer": "Peržiūrėti HTTPS nustatymus ir sertifikatų sąrašą."
   }
 }

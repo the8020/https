@@ -123,6 +123,7 @@
     "secret_usages.certificate_name": "Potrdilo HTTPS {name}",
     "secret_usages.private_key": "Zasebni ključ",
     "secret_usages.pending_order_key": "Ključ čakajoče zahteve za potrdilo",
-    "programs.secret-usages.description": "Prikaže ključe HTTPS, shranjene v podanih skrivnostih"
+    "programs.secret-usages.description": "Prikaže ključe HTTPS, shranjene v podanih skrivnostih",
+    "declarations.auth-roles.the8020.https.viewer": "Ogled nastavitev HTTPS in seznama potrdil."
   }
 }

@@ -123,6 +123,7 @@
     "secret_usages.certificate_name": "HTTPS-varmenne {name}",
     "secret_usages.private_key": "Yksityinen avain",
     "secret_usages.pending_order_key": "Odottavan varmennepyynnön avain",
-    "programs.secret-usages.description": "Luettele annettuihin salaisuuksiin tallennetut HTTPS-avaimet"
+    "programs.secret-usages.description": "Luettele annettuihin salaisuuksiin tallennetut HTTPS-avaimet",
+    "declarations.auth-roles.the8020.https.viewer": "Näytä HTTPS-asetukset ja varmenneluettelo."
   }
 }

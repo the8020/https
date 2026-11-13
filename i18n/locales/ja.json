@@ -123,6 +123,7 @@
     "secret_usages.certificate_name": "HTTPS 証明書 {name}",
     "secret_usages.private_key": "秘密鍵",
     "secret_usages.pending_order_key": "保留中の証明書リクエストの鍵",
-    "programs.secret-usages.description": "指定したシークレットに保存された HTTPS 鍵を一覧表示"
+    "programs.secret-usages.description": "指定したシークレットに保存された HTTPS 鍵を一覧表示",
+    "declarations.auth-roles.the8020.https.viewer": "HTTPS 設定と証明書の一覧を表示します。"
   }
 }
