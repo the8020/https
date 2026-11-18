@@ -1,3 +1,5 @@
+import { prepareTexts } from "/p/the8020/i18n/mod.ts";
+import { msg as messageSymbol } from "/p/the8020/https/i18n/messages.ts";
 import { newId } from "@the8020/kernel";
 import { requirePermission } from "/p/the8020/auth/mod.ts";
 import { transaction } from "/p/the8020/db/mod.ts";
@@ -20,6 +22,7 @@ export async function uploadCertificate(
   chain: string,
   key: string,
 ) {
+  await prepareTexts(messageSymbol("errors.invalid_hostname"));
   name = normalizePattern(name);
   await requirePermission("the8020.https.certificate.edit", name);
   return await publishCertificate(name, chain, key);

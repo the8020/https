@@ -1,3 +1,5 @@
+import { text as formatMessage } from "/p/the8020/i18n/mod.ts";
+import { msg as messageSymbol } from "/p/the8020/https/i18n/messages.ts";
 import {
   createHash,
   createPrivateKey,
@@ -18,7 +20,9 @@ import { covers, normalizePattern } from "../types/policy.ts";
 
 function parseChain(chain: string, allowExpired: boolean) {
   if (chain.length > 256 * 1024) {
-    throw new TypeError("Certificate chain is too large");
+    throw new TypeError(
+      formatMessage(messageSymbol("errors.certificate_chain_is_too_large")),
+    );
   }
   const blocks = chain.match(
     /-----BEGIN CERTIFICATE-----[A-Za-z0-9+/=\s]+-----END CERTIFICATE-----/g,
@@ -31,7 +35,11 @@ function parseChain(chain: string, allowExpired: boolean) {
     ).trim()
   ) {
     throw new TypeError(
-      "Provide a PEM leaf certificate followed by its intermediate chain",
+      formatMessage(
+        messageSymbol(
+          "errors.provide_a_pem_leaf_certificate_followed_by_its_intermediate_chain",
+        ),
+      ),
     );
   }
   const parsed = blocks.map((block) => new X509Certificate(block));
@@ -39,10 +47,18 @@ function parseChain(chain: string, allowExpired: boolean) {
   const now = new Date();
   for (const cert of parsed) {
     if (fromBER(cert.rawData).offset !== cert.rawData.byteLength) {
-      throw new TypeError("Certificate contains trailing DER data");
+      throw new TypeError(
+        formatMessage(
+          messageSymbol("errors.certificate_contains_trailing_der_data"),
+        ),
+      );
     }
     if (cert.notBefore > now || !allowExpired && cert.notAfter <= now) {
-      throw new TypeError("Certificate chain is not currently valid");
+      throw new TypeError(
+        formatMessage(
+          messageSymbol("errors.certificate_chain_is_not_currently_valid"),
+        ),
+      );
     }
   }
   return { blocks, parsed, native };
@@ -55,7 +71,11 @@ export function inspectPrivateKey(key: string) {
       .test(key)
   ) {
     throw new TypeError(
-      "Provide one unencrypted PEM private key (PKCS#8, RSA, or EC)",
+      formatMessage(
+        messageSymbol(
+          "errors.provide_one_unencrypted_pem_private_key_pkcs_8_rsa_or",
+        ),
+      ),
     );
   }
   const privateKey = createPrivateKey(key);
@@ -63,7 +83,9 @@ export function inspectPrivateKey(key: string) {
     privateKey.asymmetricKeyType !== "rsa" &&
     privateKey.asymmetricKeyType !== "ec"
   ) {
-    throw new TypeError("Use an RSA or ECDSA private key");
+    throw new TypeError(
+      formatMessage(messageSymbol("errors.use_an_rsa_or_ecdsa_private_key")),
+    );
   }
   return privateKey;
 }
@@ -79,7 +101,11 @@ function checkKey(certificate: NativeCertificate, key: string) {
       certificate.publicKey.export({ type: "spki", format: "der" }),
     )
   ) {
-    throw new TypeError("Certificate and private key do not match");
+    throw new TypeError(
+      formatMessage(
+        messageSymbol("errors.certificate_and_private_key_do_not_match"),
+      ),
+    );
   }
 }
 
@@ -92,7 +118,11 @@ export function inspectAuthority(certificate: string, key: string) {
     native[0]!.issuer !== native[0]!.subject ||
     !native[0]!.verify(native[0]!.publicKey)
   ) {
-    throw new TypeError("Provide one valid self-signed CA certificate");
+    throw new TypeError(
+      formatMessage(
+        messageSymbol("errors.provide_one_valid_self_signed_ca_certificate"),
+      ),
+    );
   }
   checkKey(native[0]!, key);
   return { certificate: blocks[0]! + "\n", expiresAt: root.notAfter };
@@ -107,24 +137,42 @@ export function inspectServerCertificate(
   name = normalizePattern(name);
   if (name === "*") {
     throw new TypeError(
-      "A certificate needs a concrete name or wildcard domain",
+      formatMessage(
+        messageSymbol(
+          "errors.a_certificate_needs_a_concrete_name_or_wildcard_domain",
+        ),
+      ),
     );
   }
   const { blocks, parsed, native } = parseChain(chain, allowExpired);
   const leaf = parsed[0]!;
   if (leaf.getExtension(BasicConstraintsExtension)?.ca) {
-    throw new TypeError("The leaf certificate must not be a CA");
+    throw new TypeError(
+      formatMessage(
+        messageSymbol("errors.the_leaf_certificate_must_not_be_a_ca"),
+      ),
+    );
   }
   const usage = leaf.getExtension(ExtendedKeyUsageExtension)?.usages;
   if (
     usage && !usage.includes("1.3.6.1.5.5.7.3.1") &&
     !usage.includes("2.5.29.37.0")
   ) {
-    throw new TypeError("Certificate does not permit server authentication");
+    throw new TypeError(
+      formatMessage(
+        messageSymbol(
+          "errors.certificate_does_not_permit_server_authentication",
+        ),
+      ),
+    );
   }
   const signing = leaf.getExtension(KeyUsagesExtension);
   if (signing && !(signing.usages & KeyUsageFlags.digitalSignature)) {
-    throw new TypeError("Certificate does not permit TLS signing");
+    throw new TypeError(
+      formatMessage(
+        messageSymbol("errors.certificate_does_not_permit_tls_signing"),
+      ),
+    );
   }
   const names = leaf.getExtension(SubjectAlternativeNameExtension)?.names.items
     .filter((item) => item.type === "dns" || item.type === "ip")
@@ -134,7 +182,13 @@ export function inspectServerCertificate(
     domains.length === 0 || domains.length > 100 || domains.includes("*") ||
     !domains.some((domain) => covers(domain, name))
   ) {
-    throw new TypeError("Certificate SANs do not cover its configured name");
+    throw new TypeError(
+      formatMessage(
+        messageSymbol(
+          "errors.certificate_sans_do_not_cover_its_configured_name",
+        ),
+      ),
+    );
   }
   for (let index = 1; index < native.length; index++) {
     if (
@@ -142,7 +196,13 @@ export function inspectServerCertificate(
       native[index - 1]!.issuer !== native[index]!.subject ||
       !native[index - 1]!.verify(native[index]!.publicKey)
     ) {
-      throw new TypeError("Certificate chain is not ordered leaf-to-issuer");
+      throw new TypeError(
+        formatMessage(
+          messageSymbol(
+            "errors.certificate_chain_is_not_ordered_leaf_to_issuer",
+          ),
+        ),
+      );
     }
   }
   checkKey(native[0]!, key);

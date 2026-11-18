@@ -1,3 +1,8 @@
+import {
+  localizedText as resolveMessage,
+  text as formatMessage,
+} from "/p/the8020/i18n/mod.ts";
+import { msg as messageSymbol } from "/p/the8020/https/i18n/messages.ts";
 import { AsyncLocalStorage } from "node:async_hooks";
 import { createHash } from "node:crypto";
 import { isIP } from "node:net";
@@ -82,7 +87,11 @@ async function account(directory: string, email: string) {
     });
   }
   if (stored.directory !== directory) {
-    throw new Error("ACME account identity mismatch");
+    throw new Error(
+      await resolveMessage(
+        messageSymbol("errors.acme_account_identity_mismatch"),
+      ),
+    );
   }
   const client = new Client({
     directoryUrl: directory,
@@ -160,7 +169,11 @@ async function rememberOrder(name: string, token: string, state: OrderState) {
       new Date(),
     ).executeTakeFirst();
   if (changed.numUpdatedRows !== 1n) {
-    throw new Error("Certificate operation claim expired");
+    throw new Error(
+      await resolveMessage(
+        messageSymbol("errors.certificate_operation_claim_expired"),
+      ),
+    );
   }
 }
 
@@ -207,21 +220,35 @@ export async function obtainCertificate(
   ) {
     await discardOrder(name, token);
     throw new Error(
-      "ACME order expired or became invalid; a later attempt will create a new order",
+      await resolveMessage(
+        messageSymbol(
+          "errors.acme_order_expired_or_became_invalid_a_later_attempt_will",
+        ),
+      ),
     );
   }
   if (state.order.status === "pending") {
     const authorizations = await client.getAuthorizations(state.order);
     for (const authorization of authorizations) {
       if (authorization.identifier.value.toLowerCase() !== name) {
-        throw new Error("ACME authorization name mismatch");
+        throw new Error(
+          await resolveMessage(
+            messageSymbol("errors.acme_authorization_name_mismatch"),
+          ),
+        );
       }
       if (authorization.status === "valid") continue;
       const challenge = authorization.challenges.find((item) =>
         item.type === "http-01"
       );
       if (!challenge) {
-        throw new Error("ACME provider did not offer HTTP-01 validation");
+        throw new Error(
+          await resolveMessage(
+            messageSymbol(
+              "errors.acme_provider_did_not_offer_http_01_validation",
+            ),
+          ),
+        );
       }
       await putChallenge(
         name,
@@ -261,7 +288,14 @@ export async function issueCertificate(
   if (claim.status !== "claimed") return claim;
   const controller = new AbortController();
   const timer = setTimeout(
-    () => controller.abort(new Error("Certificate operation timed out")),
+    () =>
+      controller.abort(
+        new Error(
+          formatMessage(
+            messageSymbol("errors.certificate_operation_timed_out"),
+          ),
+        ),
+      ),
     Math.max(0, claim.deadline.getTime() - Date.now()),
   );
   const scope: { signal: AbortSignal; retryAfter?: Date } = {

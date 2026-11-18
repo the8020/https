@@ -1,3 +1,8 @@
+import {
+  localizedText as resolveMessage,
+  text as formatMessage,
+} from "/p/the8020/i18n/mod.ts";
+import { msg as messageSymbol } from "/p/the8020/https/i18n/messages.ts";
 import { Resolver } from "node:dns/promises";
 import { request } from "node:http";
 import { BlockList, isIP } from "node:net";
@@ -72,7 +77,11 @@ export function publicName(name: string): string {
       ))
   ) {
     throw new TypeError(
-      "Automatic certificates require a public DNS name or configured public IP",
+      formatMessage(
+        messageSymbol(
+          "errors.automatic_certificates_require_a_public_dns_name_or_configured_public",
+        ),
+      ),
     );
   }
   return name;
@@ -107,7 +116,13 @@ export async function resolvePublicAddresses(
   }
   if (signal.aborted) throw signal.reason;
   if (addresses.length === 0 || !addresses.every(publicAddress)) {
-    throw new Error("Hostname must resolve exclusively to public addresses");
+    throw new Error(
+      await resolveMessage(
+        messageSymbol(
+          "errors.hostname_must_resolve_exclusively_to_public_addresses",
+        ),
+      ),
+    );
   }
   return [...new Set(addresses)].slice(0, 16);
 }
@@ -137,7 +152,13 @@ export function probeAddress(
       response.on("data", (chunk: string) => {
         body += chunk;
         if (body.length > expected.length) {
-          response.destroy(new Error("Unexpected admission response"));
+          response.destroy(
+            new Error(
+              formatMessage(
+                messageSymbol("errors.unexpected_admission_response"),
+              ),
+            ),
+          );
         }
       });
       response.on(
@@ -162,7 +183,12 @@ export async function verifyReachability(
   await putChallenge(name, claimToken, "probe", token, expected);
   const controller = new AbortController();
   const timeout = setTimeout(
-    () => controller.abort(new Error("Admission check timed out")),
+    () =>
+      controller.abort(
+        new Error(
+          formatMessage(messageSymbol("errors.admission_check_timed_out")),
+        ),
+      ),
     timeoutSeconds * 1000,
   );
   try {
@@ -182,7 +208,13 @@ export async function verifyReachability(
         if (controller.signal.aborted) throw controller.signal.reason;
       }
     }
-    throw new Error("Hostname does not reach this system on HTTP port 80");
+    throw new Error(
+      await resolveMessage(
+        messageSymbol(
+          "errors.hostname_does_not_reach_this_system_on_http_port_80",
+        ),
+      ),
+    );
   } finally {
     clearTimeout(timeout);
   }

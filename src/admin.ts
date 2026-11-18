@@ -1,3 +1,5 @@
+import { localizedText as resolveMessage } from "/p/the8020/i18n/mod.ts";
+import { msg as messageSymbol } from "/p/the8020/https/i18n/messages.ts";
 import { text as localizedText } from "/p/the8020/i18n/mod.ts";
 import { msg } from "/p/the8020/https/i18n/messages.ts";
 import { requirePermission } from "/p/the8020/auth/mod.ts";
@@ -27,7 +29,11 @@ export async function certificateRecords(name?: string) {
     name === undefined ? 10001 : 1,
   ).execute();
   if (rows.length > 10000) {
-    throw new Error("HTTPS administration exceeds 10000 certificates");
+    throw new Error(
+      await resolveMessage(
+        messageSymbol("errors.https_administration_exceeds_10000_certificates"),
+      ),
+    );
   }
   const now = new Date();
   return rows.map(({ domains, ...row }) =>

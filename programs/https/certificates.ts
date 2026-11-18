@@ -1,3 +1,5 @@
+import { localizedText as resolveMessage } from "/p/the8020/i18n/mod.ts";
+import { msg as messageSymbol } from "/p/the8020/https/i18n/messages.ts";
 import { text as localizedText } from "/p/the8020/i18n/mod.ts";
 import { msg } from "/p/the8020/https/i18n/messages.ts";
 import {
@@ -124,7 +126,13 @@ async function detail(name: string): Promise<void> {
   let model: Model<z.infer<typeof certificateRecord>> | undefined;
   while (true) {
     const record = (await certificateRecords(name))[0];
-    if (!record) throw new Error("Certificate no longer exists");
+    if (!record) {
+      throw new Error(
+        await resolveMessage(
+          messageSymbol("errors.certificate_no_longer_exists"),
+        ),
+      );
+    }
     model ??= new Model(record);
     model.data = record;
     const common = [
