@@ -1,3 +1,5 @@
+import { prepareTexts } from "/p/the8020/i18n/mod.ts";
+import { msg as messageSymbol } from "/p/the8020/https/i18n/messages.ts";
 import { kernel } from "@the8020/kernel";
 import { requirePermission } from "/p/the8020/auth/mod.ts";
 import { transaction } from "/p/the8020/db/mod.ts";
@@ -28,6 +30,7 @@ export async function getConfiguration(): Promise<Policy> {
 
 export async function saveConfiguration(input: unknown): Promise<Policy> {
   await requirePermission("the8020.https.configuration.edit", "");
+  await prepareTexts(messageSymbol("errors.invalid_hostname"));
   const value = policy.parse(input);
   await transaction({ timeoutMs: 2000 }, async (tx) => {
     await lockIndexRevision(tx);

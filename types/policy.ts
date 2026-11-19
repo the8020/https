@@ -1,3 +1,5 @@
+import { text as formatMessage } from "/p/the8020/i18n/mod.ts";
+import { msg as messageSymbol } from "/p/the8020/https/i18n/messages.ts";
 import { text } from "/p/the8020/i18n/mod.ts";
 import { msg } from "/p/the8020/https/i18n/messages.ts";
 import { field, z } from "/p/the8020/db/fields.ts";
@@ -6,7 +8,9 @@ import { isIP } from "node:net";
 
 export function normalizeHostname(input: string): string {
   if (!input || /[\s/\\@?#%\[\]]/.test(input)) {
-    throw new TypeError("Invalid hostname");
+    throw new TypeError(
+      formatMessage(messageSymbol("errors.invalid_hostname")),
+    );
   }
   if (isIP(input) === 6) {
     const address = new URL(`http://[${input}]`).hostname.slice(1, -1);
@@ -26,9 +30,19 @@ export function normalizeHostname(input: string): string {
     !name.split(".").every((label) =>
       /^[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?$/.test(label)
     )
-  ) throw new TypeError("Invalid hostname");
+  ) {
+    throw new TypeError(
+      formatMessage(messageSymbol("errors.invalid_hostname")),
+    );
+  }
   if (new URL(`http://${name}`).hostname !== name) {
-    throw new TypeError("Use an unambiguous hostname or canonical IP address");
+    throw new TypeError(
+      formatMessage(
+        messageSymbol(
+          "errors.use_an_unambiguous_hostname_or_canonical_ip_address",
+        ),
+      ),
+    );
   }
   return name;
 }
@@ -38,7 +52,11 @@ export function normalizePattern(input: string): string {
   if (input.startsWith("*.")) {
     const name = normalizeHostname(input.slice(2));
     if (isIP(name) || !name.includes(".")) {
-      throw new TypeError("A wildcard must precede a DNS domain");
+      throw new TypeError(
+        formatMessage(
+          messageSymbol("errors.a_wildcard_must_precede_a_dns_domain"),
+        ),
+      );
     }
     return `*.${name}`;
   }

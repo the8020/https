@@ -1,3 +1,6 @@
+import { prepareTexts } from "/p/the8020/i18n/mod.ts";
+import { localizedText as resolveMessage } from "/p/the8020/i18n/mod.ts";
+import { msg as messageSymbol } from "/p/the8020/https/i18n/messages.ts";
 import { newId } from "@the8020/kernel";
 import { isIP } from "node:net";
 import { transaction } from "/p/the8020/db/mod.ts";
@@ -12,6 +15,7 @@ export const operationLifetimeMs = 4 * 60 * 1000;
 
 /** Reserve shared capacity before DNS, reachability checks, or ACME work. */
 export async function beginOperation(name: string, renew = false) {
+  await prepareTexts(messageSymbol("errors.invalid_hostname"));
   name = normalizeHostname(name);
   await getConfiguration();
   return await transaction({ timeoutMs: 2000 }, async (tx) => {
@@ -31,7 +35,13 @@ export async function beginOperation(name: string, renew = false) {
           isIP(name) !== 0 && configuration.ipAddress !== name) ||
       !configuration.allowedDomains.some((pattern) => covers(pattern, name))
     ) {
-      throw new Error("Automatic HTTPS is not permitted for this name");
+      throw new Error(
+        await resolveMessage(
+          messageSymbol(
+            "errors.automatic_https_is_not_permitted_for_this_name",
+          ),
+        ),
+      );
     }
     const current = await tx.selectFrom(Certificates.table).selectAll()
       .where("name", "=", name).executeTakeFirst();
@@ -46,7 +56,13 @@ export async function beginOperation(name: string, renew = false) {
       }
     }
     if (current && current.source !== source) {
-      throw new Error("Certificate is not managed by the selected issuer");
+      throw new Error(
+        await resolveMessage(
+          messageSymbol(
+            "errors.certificate_is_not_managed_by_the_selected_issuer",
+          ),
+        ),
+      );
     }
     if (current?.claimUntil && current.claimUntil > now) {
       return { status: "busy" as const, retryAt: current.claimUntil };
@@ -62,14 +78,22 @@ export async function beginOperation(name: string, renew = false) {
       .where("claimKind", "=", kind).where("claimUntil", ">", now)
       .executeTakeFirstOrThrow();
     if (running >= (kind === "enroll" ? configuration.concurrentChecks : 2)) {
-      throw new Error("Certificate operation capacity reached");
+      throw new Error(
+        await resolveMessage(
+          messageSymbol("errors.certificate_operation_capacity_reached"),
+        ),
+      );
     }
     if (kind === "enroll") {
       const attempts = locked.attempts.filter((time) =>
         time > now.getTime() - 3600000
       );
       if (attempts.length >= configuration.attemptsPerHour) {
-        throw new Error("New hostname attempt allowance exhausted");
+        throw new Error(
+          await resolveMessage(
+            messageSymbol("errors.new_hostname_attempt_allowance_exhausted"),
+          ),
+        );
       }
       const { count: names } = await tx.selectFrom(Certificates.table)
         .select((eb) => eb.fn.countAll<number>().as("count"))
@@ -81,7 +105,11 @@ export async function beginOperation(name: string, renew = false) {
           ])
         ).executeTakeFirstOrThrow();
       if (names >= configuration.maximumNames) {
-        throw new Error("Admitted hostname limit reached");
+        throw new Error(
+          await resolveMessage(
+            messageSymbol("errors.admitted_hostname_limit_reached"),
+          ),
+        );
       }
       await tx.updateTable(Configuration.table).set({
         attempts: [...attempts, now.getTime()],
@@ -132,18 +160,34 @@ export async function admitName(name: string, token: string) {
       !configuration.enabled || !configuration.letsEncrypt ||
       !configuration.allowedDomains.some((pattern) => covers(pattern, name))
     ) {
-      throw new Error("Automatic HTTPS is no longer permitted for this name");
+      throw new Error(
+        await resolveMessage(
+          messageSymbol(
+            "errors.automatic_https_is_no_longer_permitted_for_this_name",
+          ),
+        ),
+      );
     }
     const current = await tx.selectFrom(Certificates.table).select("admitted")
       .where("name", "=", name).where("claimToken", "=", token)
       .where("claimUntil", ">", now).executeTakeFirst();
-    if (!current) throw new Error("Certificate operation claim expired");
+    if (!current) {
+      throw new Error(
+        await resolveMessage(
+          messageSymbol("errors.certificate_operation_claim_expired"),
+        ),
+      );
+    }
     if (!current.admitted) {
       const { count } = await tx.selectFrom(Certificates.table)
         .select((eb) => eb.fn.countAll<number>().as("count"))
         .where("admitted", "=", true).executeTakeFirstOrThrow();
       if (count >= configuration.maximumNames) {
-        throw new Error("Admitted hostname limit reached");
+        throw new Error(
+          await resolveMessage(
+            messageSymbol("errors.admitted_hostname_limit_reached"),
+          ),
+        );
       }
     }
     const changed = await tx.updateTable(Certificates.table).set({
@@ -153,7 +197,11 @@ export async function admitName(name: string, token: string) {
       .where("name", "=", name).where("claimToken", "=", token)
       .where("claimUntil", ">", new Date()).executeTakeFirst();
     if (changed.numUpdatedRows !== 1n) {
-      throw new Error("Certificate operation claim expired");
+      throw new Error(
+        await resolveMessage(
+          messageSymbol("errors.certificate_operation_claim_expired"),
+        ),
+      );
     }
   });
 }

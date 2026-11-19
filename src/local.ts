@@ -1,3 +1,5 @@
+import { localizedText as resolveMessage } from "/p/the8020/i18n/mod.ts";
+import { msg as messageSymbol } from "/p/the8020/https/i18n/messages.ts";
 import { createPrivateKey } from "node:crypto";
 import { Buffer } from "node:buffer";
 import { isIP } from "node:net";
@@ -78,7 +80,11 @@ export async function obtainLocalCertificate(name: string, token: string) {
   const root = new X509Certificate(stored.certificate), now = Date.now();
   if (root.notBefore.getTime() > now || root.notAfter.getTime() <= now) {
     throw new Error(
-      "The local HTTPS authority is not valid; replace it before issuing local certificates",
+      await resolveMessage(
+        messageSymbol(
+          "errors.the_local_https_authority_is_not_valid_replace_it_before",
+        ),
+      ),
     );
   }
   const rootPublicKey = await root.publicKey.export();
