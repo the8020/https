@@ -3,4 +3,5 @@ description = "HTTPS"
 entrypoint = "program.ts"
 uui = true
 discoverable = true
+
 shortcut = "HTTPS"
